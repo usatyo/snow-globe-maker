@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Crystal from "../component/Crystal";
 import Header from "../component/Header";
 
