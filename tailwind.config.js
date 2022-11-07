@@ -38,6 +38,11 @@ module.exports = {
     fontFamily: {
       'italianno': ['"Italianno"', 'cursive']
     },
+    extend: {
+      backgroundImage: {
+        'city': "url('https://images.unsplash.com/photo-1551582045-6ec9c11d8697?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fHNub3d8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60')",
+      },
+    }
   },
   plugins: [],
 }
