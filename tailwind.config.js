@@ -13,14 +13,28 @@ module.exports = {
       "base": {
         "light": "#cccccc",
         "original": "#999999",
-        "dark": "#000000",
+        "dark": "#666666",
       },
       "accent": {
         "light": "#000000",
-        "original": "#999900",
+        "original": "#CFBF7E",
         "dark": "#000000",
-      }
+      },
+      "ice": {
+        "light": "#f5fffe",
+        "original": "#e8fffd",
+        "dark": "#ccfcf9",
+      },
     },
+    fontSize: {
+      "sm": "0.8rem",
+      "base": "1rem",
+      "xl": "1.25rem",
+      "2xl": "1.563rem",
+      "3xl": "1.953rem",
+      "4xl": "2.441rem",
+      "5xl": "3.052rem",
+    }
   },
   plugins: [],
 }
