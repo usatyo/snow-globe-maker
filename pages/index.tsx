@@ -21,7 +21,7 @@ export default function Home() {
       <div className="absolute right-7 bottom-7 font-italianno text-accent-original text-2xl">
         <p>usatyo</p>
         <p>sugara</p>
-        <p>karinto</p>
+        <p>karintou</p>
         <p>almikan</p>
       </div>
     </div>
