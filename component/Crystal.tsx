@@ -5,7 +5,7 @@ export const Crystal = () => {
     <div>
       {[...Array(50)].map((_, idx) => {
         const scale = Math.random()
-        const right = Math.random() * 90
+        const right = (Math.random() * 10) ** 2
         const bottom = 150 / right * Math.random()
         return (
           <BsSnow2 

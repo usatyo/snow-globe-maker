@@ -13,10 +13,10 @@ export const Header: FC<Props> = ({ className }) => {
       <Image src={logoImg} alt="logo" className="w-36 object-cover" />
       <div className="flex flex-row items-center space-x-16 text-xl tracking-wider">
         <Link href="/">
-          <p className="hover:underline underline-offset-4">Home</p>
+          <p className="relative font-italianno text-3xl pt-3 after:absolute after:h-[1px] hover:after:w-[120%] after:top-11 after:left-[-10%] after:bg-accent-original">Title</p>
         </Link>
         <Link href="/gallery">
-          <p className="hover:underline underline-offset-4">Gallery</p>
+          <p className="relative font-italianno text-3xl pt-3 after:absolute after:h-[1px] hover:after:w-[120%] after:top-11 after:left-[-10%] after:bg-accent-original">Gallery</p>
         </Link>
       </div>
     </div>

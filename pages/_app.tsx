@@ -7,8 +7,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <div>
       <Head>
         <title>Snow City</title>
+        <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet" />
       </Head>
       <Component {...pageProps} />
     </div>
-  ) 
+  )
 }
