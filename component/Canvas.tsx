@@ -1,8 +1,7 @@
-import Image from "next/image"
 import { FC, useEffect, useRef } from "react"
 import Crystal from "./Crystal"
-import sampleImg from "../assets/sample.png"
-import { BoxGeometry, Mesh, MeshBasicMaterial, PerspectiveCamera, Scene, WebGLRenderer } from "three"
+import { BoxGeometry, DirectionalLight, Mesh, MeshStandardMaterial, PerspectiveCamera, Scene, WebGLRenderer } from "three"
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 
 type Props = {
   city?: string
@@ -12,17 +11,43 @@ type Props = {
 export const Canvas: FC<Props> = ({ city, className }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
-    const scene = new Scene()
-    const camera = new PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+    if (!containerRef.current) throw Error("no ref")
     const renderer = new WebGLRenderer()
-    renderer.setSize(containerRef.current?.clientWidth ?? 100, containerRef.current?.clientHeight ?? 100)
-    containerRef?.current?.appendChild(renderer.domElement)
-    const geometry = new BoxGeometry(1, 1, 1);
-    const material = new MeshBasicMaterial({ color: 0x00ff00 });
-    const cube = new Mesh(geometry, material);
-    scene.add(cube);
-    camera.position.z = 5;
-    renderer.render(scene, camera)
+    const scene = new Scene();
+    containerRef.current.appendChild(renderer.domElement)
+    renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight)
+
+    // カメラを作成
+    const camera = new PerspectiveCamera(45, containerRef.current.clientWidth / containerRef.current.clientHeight, 1, 10000);
+    camera.position.set(0, 0, +1000);
+
+    // 球体を作成
+    const geometry = new BoxGeometry(300, 300, 300);
+    const material = new MeshStandardMaterial({ color: 0xFF0000 });
+    // メッシュを作成
+    const mesh = new Mesh(geometry, material);
+    // 3D空間にメッシュを追加
+    scene.add(mesh);
+
+    // 平行光源
+    const directionalLight = new DirectionalLight(0xFFFFFF);
+    directionalLight.position.set(1, 1, 1);
+    // シーンに追加
+    scene.add(directionalLight);
+
+    const controls = new OrbitControls(camera, renderer.domElement)
+    controls.target.set(0, 0, 0)
+    controls.enableDamping = true
+    controls.dampingFactor = 0.2
+
+    const tick = () => {
+      controls.update()
+      renderer.render(scene, camera)
+      requestAnimationFrame(tick)
+    }
+
+    tick()
+
     return () => {
       containerRef.current?.removeChild(renderer.domElement)
     }

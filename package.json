@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@radix-ui/react-radio-group": "^1.1.0",
+    "@react-three/drei": "^9.40.0",
+    "@react-three/fiber": "^8.9.1",
     "@types/node": "18.11.9",
     "@types/react": "18.0.24",
     "@types/react-dom": "18.0.8",
@@ -20,6 +22,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
     "three": "^0.146.0",
+    "three-orbit-controls": "^82.1.0",
     "typescript": "4.8.4"
   },
   "devDependencies": {
