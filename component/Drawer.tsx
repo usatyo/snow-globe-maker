@@ -1,16 +1,17 @@
 import { FC } from "react"
 import { BsSnow2 } from "react-icons/bs"
 import * as RadioGroup from '@radix-ui/react-radio-group';
+import { cities } from "../constant/constant";
 
-const cities: Array<string> = ["Sapporo", "Sendai", "Niigata", "Tokyo"]
 
 type Props = {
+  onChange?: (val: string) => void
   className?: string
 }
 
-export const Drawer: FC<Props> = ({ className }) => {
+export const Drawer: FC<Props> = ({ onChange, className }) => {
   return (
-    <RadioGroup.Root defaultChecked defaultValue={cities[0]} className={`z-30 flex flex-col items-start space-y-7 bg-base-light/30 w-[500px] h-full p-10 ${className}`}>
+    <RadioGroup.Root defaultChecked defaultValue={cities[0]} onValueChange={onChange} className={`z-30 flex flex-col items-start space-y-7 bg-base-light/30 w-[500px] h-full p-10 ${className}`}>
       {cities.map((val) => {
         return (
           <div key={val} className="flex flex-row justify-around items-center space-x-3 border-b-2 border-ice-dark pl-2">

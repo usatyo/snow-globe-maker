@@ -7,7 +7,9 @@ export default function Home() {
       <Header className="grow-0" />
       <div className="grow flex flex-row bg-base-dark">
         <div className="relative grow-0 w-1/3 flex flex-row justify-end items-center">
-          <div className="-mr-24 z-10 p-1 border-8 border-accent-original">
+          <div className="relative -mr-24 z-10 p-1 border-8 border-accent-original">
+            <hr className="absolute top-1/2 h-1 w-3 left-14 text-accent-original" />
+            <hr className="absolute top-1/2 h-1 w-3 right-14 text-accent-original" />
             <p className="p-20 text-accent-original text-lg border-2 border-accent-original tracking-[3px] font-extrabold">あなたの街にも、初雪を</p>
           </div>
         </div>
@@ -21,7 +23,7 @@ export default function Home() {
       <div className="absolute right-7 bottom-7 font-italianno text-accent-original text-2xl">
         <p>usatyo</p>
         <p>sugara</p>
-        <p>karinto</p>
+        <p>karintou</p>
         <p>almikan</p>
       </div>
     </div>
