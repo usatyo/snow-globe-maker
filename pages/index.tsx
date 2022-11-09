@@ -13,7 +13,7 @@ export default function Home() {
             <p className="p-20 text-accent-original text-lg border-2 border-accent-original tracking-[3px] font-extrabold">あなたの街にも、初雪を</p>
           </div>
         </div>
-        <div className="relative grow grayscale opacity-70 bg-city bg-cover">
+        <div className="relative grow grayscale opacity-70 bg-city bg-cover bg-center">
           <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-base-dark"></div>
         </div>
       </div>
