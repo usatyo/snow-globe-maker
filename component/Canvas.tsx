@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef } from "react"
 import Crystal from "./Crystal"
-import { DirectionalLight, PerspectiveCamera, Scene, WebGLRenderer } from "three"
+import { AmbientLight, DirectionalLight, PerspectiveCamera, PointLight, Scene, WebGLRenderer } from "three"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
@@ -36,10 +36,26 @@ export const Canvas: FC<Props> = ({ path, className }) => {
     )
 
     // 平行光源
-    const directionalLight = new DirectionalLight(0xFFFFFF, 2)
-    directionalLight.position.set(1, 1, 1)
-    // シーンに追加
-    scene.add(directionalLight)
+    // const directionalLight = new DirectionalLight(0xFFFFFF, 2)
+    // directionalLight.position.set(1, 1, 1)
+    // // シーンに追加
+    // scene.add(directionalLight)
+
+
+    const pointLight1 = new PointLight(0xFFFFFF, 5, 10, 0.1);
+    pointLight1.position.set(2, 1, 2)
+    scene.add(pointLight1)
+
+    const pointLight2 = new PointLight(0xFFFFFF, 5, 10, 0.1);
+    pointLight2.position.set(2, 1, -2)
+    scene.add(pointLight2)
+
+    const pointLight3 = new PointLight(0xFFFFFF, 5, 10, 0.1);
+    pointLight3.position.set(-2, 1, 0)
+    scene.add(pointLight3)
+
+    const ambientLight = new AmbientLight(0xFFFFFF, 0.5);
+    scene.add(ambientLight)
 
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.target.set(0, 0, 0)
