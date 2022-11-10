@@ -5,11 +5,11 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
 type Props = {
-  city?: string
+  path: string
   className?: string
 }
 
-export const Canvas: FC<Props> = ({ city, className }) => {
+export const Canvas: FC<Props> = ({ path, className }) => {
   const containerRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     if (!containerRef.current) throw Error("no ref")
@@ -25,7 +25,7 @@ export const Canvas: FC<Props> = ({ city, className }) => {
     const loader = new GLTFLoader()
 
     loader.load(
-      "monkey.gltf",
+      path,
       (tmpGltf) => {
         scene.add(tmpGltf.scene)
         console.log("loaded")
@@ -35,9 +35,8 @@ export const Canvas: FC<Props> = ({ city, className }) => {
       }
     )
 
-
     // 平行光源
-    const directionalLight = new DirectionalLight(0xFFFFFF)
+    const directionalLight = new DirectionalLight(0xFFFFFF, 2)
     directionalLight.position.set(1, 1, 1)
     // シーンに追加
     scene.add(directionalLight)
@@ -60,7 +59,7 @@ export const Canvas: FC<Props> = ({ city, className }) => {
     return () => {
       containerRef.current?.removeChild(renderer.domElement)
     }
-  }, [])
+  }, [path])
 
   return (
     <div className={`relative h-full w-full flex flex-row ${className}`}>

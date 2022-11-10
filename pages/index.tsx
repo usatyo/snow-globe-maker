@@ -20,12 +20,12 @@ export default function Home() {
       <div className="absolute top-0 left-0 h-full w-1/2">
         <Crystal />
       </div>
-      <div className="absolute right-7 bottom-7 font-italianno text-accent-original text-2xl">
+      {/* <div className="absolute right-7 bottom-7 font-italianno text-accent-original text-2xl">
         <p>usatyo</p>
         <p>sugara</p>
         <p>karintou</p>
         <p>almikan</p>
-      </div>
+      </div> */}
     </div>
   )
 }
