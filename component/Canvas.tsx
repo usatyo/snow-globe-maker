@@ -1,6 +1,6 @@
-import { FC, useEffect, useRef } from "react"
+import { FC, useEffect, useRef, useState } from "react"
 import Crystal from "./Crystal"
-import { AmbientLight, CubeTextureLoader, PerspectiveCamera, PointLight, Scene, WebGLRenderer } from "three"
+import { AmbientLight, BufferGeometry, CubeTextureLoader, Float32BufferAttribute, PerspectiveCamera, PointLight, Points, PointsMaterial, Scene, WebGLRenderer } from "three"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
@@ -24,12 +24,23 @@ export const Canvas: FC<Props> = ({ path, onLoading, onError, className }) => {
     const camera = new PerspectiveCamera(45, containerRef.current.clientWidth / containerRef.current.clientHeight, 1, 1000)
     camera.position.set(0, 0, 10)
 
+    // ICO球の作成
+    // const geometry = new IcosahedronGeometry(2, 5)
+    // const material = new MeshBasicMaterial({
+    //   blending: NormalBlending,
+    //   transparent: true,
+    //   opacity: 0.4,
+    // })
+    // const sphere = new Mesh(geometry, material)
+    // scene.add(sphere)
+
     // gltfファイルの読み込み、シーンへの追加
     const gltfLoader = new GLTFLoader()
     gltfLoader.load(
       path,
       (tmpGltf) => {
-        scene.add(tmpGltf.scene)
+        const model = tmpGltf.scene
+        scene.add(model)
         console.log("gltf loaded")
       },
       (xhr) => {
@@ -62,21 +73,20 @@ export const Canvas: FC<Props> = ({ path, onLoading, onError, className }) => {
       (error) => { }
     )
 
-
     // ライトを作成
-    const pointLight1 = new PointLight(0xFFFFFF, 5, 10, 0.1);
+    const pointLight1 = new PointLight(0xFFFFFF, 5, 10, 0.5)
     pointLight1.position.set(2, 1, 2)
     scene.add(pointLight1)
 
-    const pointLight2 = new PointLight(0xFFFFFF, 5, 10, 0.1);
+    const pointLight2 = new PointLight(0xFFFFFF, 5, 10, 0.5)
     pointLight2.position.set(2, 1, -2)
     scene.add(pointLight2)
 
-    const pointLight3 = new PointLight(0xFFFFFF, 5, 10, 0.1);
+    const pointLight3 = new PointLight(0xFFFFFF, 5, 10, 0.5)
     pointLight3.position.set(-2, 1, 0)
     scene.add(pointLight3)
 
-    const ambientLight = new AmbientLight(0xFFFFFF, 0.5);
+    const ambientLight = new AmbientLight(0xFFFFFF, 0.5)
     scene.add(ambientLight)
 
     // コントロール（回転のみ許可）
@@ -85,6 +95,8 @@ export const Canvas: FC<Props> = ({ path, onLoading, onError, className }) => {
     controls.enablePan = false
     controls.enableZoom = false
     controls.enableDamping = true
+    controls.maxPolarAngle = Math.PI / 2
+    controls.minPolarAngle = Math.PI / 6
     controls.dampingFactor = 0.2
 
     const tick = () => {
