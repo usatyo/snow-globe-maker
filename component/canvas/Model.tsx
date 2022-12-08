@@ -12,6 +12,6 @@ export const Model = (props: any) => {
   return <primitive {...props} object={scene} />
 }
 
-useGLTF.preload('/model.glb')
+useGLTF.preload('/tokyo.gltf')
 
 export default Model
