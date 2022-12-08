@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import Canvas from '../component/Canvas'
+
+// import Canvas from '../component/Canvas'
 import App from '../component/App'
 import Drawer from '../component/Drawer'
 import Header from '../component/Header'
