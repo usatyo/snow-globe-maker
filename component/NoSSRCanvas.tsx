@@ -1,3 +1,3 @@
 import dynamic from 'next/dynamic'
 
-export default dynamic(() => import('./PathTracingCanvas'), { ssr: false })
+export default dynamic(() => import('./canvas/PathTracingCanvas'), { ssr: false })

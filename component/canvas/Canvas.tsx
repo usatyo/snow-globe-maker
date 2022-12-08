@@ -14,7 +14,7 @@ import {
 } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import Crystal from './Crystal'
+import Crystal from '../Crystal'
 
 type Props = {
   path: string

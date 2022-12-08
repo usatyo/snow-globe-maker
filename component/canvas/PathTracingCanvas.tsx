@@ -5,7 +5,7 @@ import { useControls } from 'leva'
 
 import { Pathtracer, usePathtracer } from '@react-three/gpu-pathtracer'
 
-import Controls from './Controls'
+import Controls from '../Controls'
 import Model from './Model'
 
 function Thing({ setEnabled }: any) {
