@@ -3,6 +3,7 @@ import { Environment, Loader } from '@react-three/drei'
 import { Suspense, useState, useEffect } from 'react'
 
 import SnowGlobe from './SnowGlobe'
+import Snows from './Snows'
 
 export default function EnvMapCanvas() {
   const [devicePixelRatio, setDevicePixelRatio] = useState(1)
@@ -26,6 +27,7 @@ export default function EnvMapCanvas() {
         <Environment preset="apartment" />
         <Suspense fallback={null}>
           <SnowGlobe />
+          <Snows />
         </Suspense>
       </Canvas>
       <Loader />
