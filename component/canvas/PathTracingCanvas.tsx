@@ -18,7 +18,8 @@ export default function PathTracingCanvas() {
           fov: 40
         }}
         gl={{
-          preserveDrawingBuffer: true
+          preserveDrawingBuffer: true,
+          pixelRatio: window.devicePixelRatio
         }}
       >
         <Suspense fallback={null}>
