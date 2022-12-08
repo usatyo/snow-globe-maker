@@ -33,6 +33,7 @@ export const Canvas: FC<Props> = ({ path, onLoading, onError, className }) => {
       containerRef.current.clientWidth,
       containerRef.current.clientHeight
     );
+    renderer.setPixelRatio(window.devicePixelRatio);
 
     // カメラを作成
     const camera = new PerspectiveCamera(
@@ -87,26 +88,26 @@ export const Canvas: FC<Props> = ({ path, onLoading, onError, className }) => {
     );
 
     // ライトを作成
-    const pointLight1 = new PointLight(0xffffff, 5, 10, 0.5);
+    const pointLight1 = new PointLight(0xffffff, 1, 1, 0.3);
     pointLight1.position.set(2, 1, 2);
     scene.add(pointLight1);
 
-    const pointLight2 = new PointLight(0xffffff, 5, 10, 0.5);
+    const pointLight2 = new PointLight(0xffffff, 5, 10, 0.3);
     pointLight2.position.set(2, 1, -2);
     scene.add(pointLight2);
 
-    const pointLight3 = new PointLight(0xffffff, 5, 10, 0.5);
+    const pointLight3 = new PointLight(0xffffff, 5, 10, 0.3);
     pointLight3.position.set(-2, 1, 0);
     scene.add(pointLight3);
 
-    const ambientLight = new AmbientLight(0xffffff, 0.5);
+    const ambientLight = new AmbientLight(0xffffff, 2);
     scene.add(ambientLight);
 
     // コントロール（回転のみ許可）
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.target.set(0, 0, 0);
     controls.enablePan = false;
-    controls.enableZoom = false;
+    controls.enableZoom = true;
     controls.enableDamping = true;
     controls.maxPolarAngle = Math.PI / 2;
     controls.minPolarAngle = Math.PI / 6;
