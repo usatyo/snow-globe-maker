@@ -1,5 +1,5 @@
-import Crystal from "../component/Crystal";
-import Header from "../component/Header";
+import Crystal from '../component/Crystal'
+import Header from '../component/Header'
 
 export default function Home() {
   return (
@@ -10,7 +10,9 @@ export default function Home() {
           <div className="relative -mr-24 z-10 p-1 border-8 border-accent-original">
             <hr className="absolute top-1/2 h-1 w-3 left-14 text-accent-original" />
             <hr className="absolute top-1/2 h-1 w-3 right-14 text-accent-original" />
-            <p className="p-20 text-accent-original text-lg border-2 border-accent-original tracking-[3px] font-extrabold">あなたの街にも、初雪を</p>
+            <p className="p-20 text-accent-original text-lg border-2 border-accent-original tracking-[3px] font-extrabold">
+              あなたの街にも、初雪を
+            </p>
           </div>
         </div>
         <div className="relative grow grayscale opacity-70 bg-city bg-cover bg-center">

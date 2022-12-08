@@ -48,10 +48,10 @@ export default function App() {
       <Canvas
         camera={{
           position: [5, 4.5, -5],
-          fov: 40,
+          fov: 40
         }}
         gl={{
-          preserveDrawingBuffer: true,
+          preserveDrawingBuffer: true
         }}
       >
         <Suspense fallback={null}>
@@ -61,7 +61,7 @@ export default function App() {
               top: opts.Gradient_ColorTop,
               bottom: opts.Gradient_ColorBottom,
               intensity: opts.Environment_Intensity,
-              blur: opts.Environment_Blur,
+              blur: opts.Environment_Blur
             }}
             bounces={opts.Rendering_Bounces}
             enabled={enabled && opts.Rendering_Enabled}

@@ -1,9 +1,9 @@
-import { useState } from "react"
-import Canvas from "../component/Canvas"
-import App from "../component/App"
-import Drawer from "../component/Drawer"
-import Header from "../component/Header"
-import { cities } from "../constant/constant"
+import { useState } from 'react'
+import Canvas from '../component/Canvas'
+import App from '../component/App'
+import Drawer from '../component/Drawer'
+import Header from '../component/Header'
+import { cities } from '../constant/constant'
 
 export const Gallery = () => {
   const [city, setCity] = useState(cities[0].gltfPath)
