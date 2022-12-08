@@ -4,7 +4,7 @@ import { Suspense, useState, useEffect } from 'react'
 
 import SnowGlobe from './SnowGlobe'
 
-export default function PathTracingCanvas() {
+export default function EnvMapCanvas() {
   const [devicePixelRatio, setDevicePixelRatio] = useState(1)
 
   useEffect(() => {

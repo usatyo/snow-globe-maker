@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Crystal from '../component/Crystal'
 import Drawer from '../component/Drawer'
 import Header from '../component/Header'
-import PathTracingCanvas from '../component/canvas/PathTracingCanvas'
+import EnvMapCanvas from '../component/canvas/EnvMapCanvas'
 import { cities } from '../constant/constant'
 
 export const Gallery = () => {
@@ -13,7 +13,7 @@ export const Gallery = () => {
     <div className="flex flex-col h-screen bg-gradient-to-br from-base-dark to-black overflow-hidden">
       <Header className="grow-0" />
       <div className="grow relative flex flex-row justify-end">
-        <PathTracingCanvas />
+        <EnvMapCanvas />
         <Crystal />
         <Drawer onChange={setCity} className="grow-0" />
       </div>
