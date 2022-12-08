@@ -1,6 +1,6 @@
 import { FC, useEffect, useRef, useState } from "react"
 import Crystal from "./Crystal"
-import { AmbientLight, BufferGeometry, CubeTextureLoader, Float32BufferAttribute, PerspectiveCamera, PointLight, Points, PointsMaterial, Scene, WebGLRenderer } from "three"
+import { AmbientLight, BufferGeometry, CubeTextureLoader, Float32BufferAttribute, PerspectiveCamera, PointLight, Points, PointsMaterial, RectAreaLight, Scene, WebGLRenderer } from "three"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
@@ -19,6 +19,7 @@ export const Canvas: FC<Props> = ({ path, onLoading, onError, className }) => {
     const scene = new Scene()
     containerRef.current.appendChild(renderer.domElement)
     renderer.setSize(containerRef.current.clientWidth, containerRef.current.clientHeight)
+    renderer.setPixelRatio(window.devicePixelRatio)
 
     // カメラを作成
     const camera = new PerspectiveCamera(45, containerRef.current.clientWidth / containerRef.current.clientHeight, 1, 1000)
@@ -74,7 +75,7 @@ export const Canvas: FC<Props> = ({ path, onLoading, onError, className }) => {
     )
 
     // ライトを作成
-    const pointLight1 = new PointLight(0xFFFFFF, 5, 10, 0.5)
+    const pointLight1 = new RectAreaLight(0xFFFFFF, 5, 10, 0.5)
     pointLight1.position.set(2, 1, 2)
     scene.add(pointLight1)
 
@@ -86,7 +87,7 @@ export const Canvas: FC<Props> = ({ path, onLoading, onError, className }) => {
     pointLight3.position.set(-2, 1, 0)
     scene.add(pointLight3)
 
-    const ambientLight = new AmbientLight(0xFFFFFF, 0.5)
+    const ambientLight = new AmbientLight(0xFFFFFF, 5)
     scene.add(ambientLight)
 
     // コントロール（回転のみ許可）
