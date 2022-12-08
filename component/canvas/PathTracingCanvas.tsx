@@ -1,46 +1,14 @@
 import { Canvas } from '@react-three/fiber'
-import { Environment, OrbitControls, Bounds } from '@react-three/drei'
-import { Suspense, useLayoutEffect, useState } from 'react'
-import { useControls } from 'leva'
+import { Environment } from '@react-three/drei'
+import { Suspense } from 'react'
 
-import { Pathtracer, usePathtracer } from '@react-three/gpu-pathtracer'
+import { Pathtracer } from '@react-three/gpu-pathtracer'
 
-import Controls from '../Controls'
-import Model from './Model'
+import Controls from './Controls'
+import SnowGlobe from './SnowGlobe'
 
-function Thing({ setEnabled }: any) {
-  const { clear, update, renderer } = usePathtracer()
-
-  // useLayoutEffect(() => update(), [])
-  const [captureStarted, setCaptureStarted] = useState(false)
-
-  const opts: any = useControls({}, [captureStarted])
-
-  return (
-    <>
-      <OrbitControls
-        autoRotate={opts['Auto Rotate']}
-        autoRotateSpeed={2}
-        onEnd={() => setEnabled(true)}
-        onStart={() => setEnabled(false)}
-        // onChange={() => clear()}
-      />
-      <group>
-        <Bounds fit clip observe damping={6} margin={1.7}>
-          <group position={[0.2, -1, 0]}>
-            <Model rotation-y={Math.PI} position={[-0.3, 0, 0]} scale={5} />
-          </group>
-        </Bounds>
-      </group>
-    </>
-  )
-}
-
-export default function App() {
-  const opts: any = Controls()
-
-  // const [enabled, setEnabled] = useState(true)
-  const enabled = false
+export default function PathTracingCanvas() {
+  const opts = Controls()
 
   return (
     <>
@@ -56,14 +24,14 @@ export default function App() {
         <Suspense fallback={null}>
           <Pathtracer
             background={{
-              type: opts.Background_Type,
+              type: opts.Background_Type as 'Gradient' | 'Environment' | undefined,
               top: opts.Gradient_ColorTop,
               bottom: opts.Gradient_ColorBottom,
               intensity: opts.Environment_Intensity,
               blur: opts.Environment_Blur
             }}
             bounces={opts.Rendering_Bounces}
-            enabled={enabled && opts.Rendering_Enabled}
+            enabled={opts.Rendering_Enabled}
             paused={opts.Rendering_Paused}
             samples={opts.Rendering_Samples}
             resolutionScale={opts.Rendering_Scale}
@@ -72,7 +40,7 @@ export default function App() {
             renderPriority={0}
           >
             <Environment preset="apartment" />
-            <Thing setEnabled={() => {}} />
+            <SnowGlobe />
           </Pathtracer>
         </Suspense>
       </Canvas>
