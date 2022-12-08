@@ -9,13 +9,13 @@ import Controls from './Controls'
 import Model from './Model'
 import Crystal from './Crystal'
 
-function Thing({ setEnabled }) {
+function Thing({ setEnabled }: any) {
   const { clear, update, renderer } = usePathtracer()
 
   // useLayoutEffect(() => update(), [])
   const [captureStarted, setCaptureStarted] = useState(false)
 
-  const opts = useControls({}, [captureStarted])
+  const opts: any = useControls({}, [captureStarted])
 
   return (
     <>
@@ -38,7 +38,7 @@ function Thing({ setEnabled }) {
 }
 
 export default function App() {
-  const opts = Controls()
+  const opts: any = Controls()
 
   // const [enabled, setEnabled] = useState(true)
   const enabled = false
@@ -69,9 +69,11 @@ export default function App() {
             samples={opts.Rendering_Samples}
             resolutionScale={opts.Rendering_Scale}
             tiles={[opts.Rendering_Tiles.x, opts.Rendering_Tiles.y]}
+            disable={false}
+            renderPriority={0}
           >
             <Environment preset="apartment" />
-            <Thing setEnabled={() => { }} />
+            <Thing setEnabled={() => {}} />
           </Pathtracer>
         </Suspense>
       </Canvas>

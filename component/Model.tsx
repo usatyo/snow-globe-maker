@@ -6,7 +6,7 @@ import React from 'react'
 import { useGLTF } from '@react-three/drei'
 import { PrimitiveProps } from '@react-three/fiber'
 
-export const Model = (props: PrimitiveProps) => {
+export const Model = (props: any) => {
   const { scene } = useGLTF('/tokyo.gltf')
 
   return <primitive {...props} object={scene} />

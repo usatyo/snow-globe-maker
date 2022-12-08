@@ -1,9 +1,9 @@
 import { useState } from 'react'
 
 // import Canvas from '../component/Canvas'
-import App from '../component/App'
 import Drawer from '../component/Drawer'
 import Header from '../component/Header'
+import PathTracingCanvas from '../component/PathTracingCanvas'
 import { cities } from '../constant/constant'
 
 export const Gallery = () => {
@@ -13,7 +13,7 @@ export const Gallery = () => {
       <Header className="grow-0" />
       <div className="grow relative flex flex-row">
         {/* <Canvas path={city} className="grow" /> */}
-        <App />
+        <PathTracingCanvas />
         <Drawer onChange={setCity} className="grow-0" />
       </div>
     </div>
