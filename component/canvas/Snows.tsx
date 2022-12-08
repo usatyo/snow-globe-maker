@@ -1,8 +1,12 @@
+import { forwardRef, useRef, RefObject, createRef } from 'react'
+import { useFrame } from '@react-three/fiber'
+
+type Vector3 = [number, number, number]
 type SnowProps = {
-  position: [number, number, number]
+  position: Vector3
 }
 
-const generateRandomSpherePosition = (): [number, number, number] => {
+const generateRandomSpherePosition = (): Vector3 => {
   let x = 0,
     y = 0,
     z = 0
@@ -16,7 +20,7 @@ const generateRandomSpherePosition = (): [number, number, number] => {
   return [x, y, z]
 }
 
-const generateSnowPosition = (): [number, number, number] => {
+const generateSnowPosition = (): Vector3 => {
   const scale = 18
   const offsetY = 5
   let [x, y, z] = generateRandomSpherePosition()
@@ -27,20 +31,47 @@ const generateSnowPosition = (): [number, number, number] => {
   return [x, y, z]
 }
 
-const Snow = ({ position }: SnowProps) => {
+const Snow = forwardRef<THREE.Mesh, SnowProps>(({ position }, ref) => {
   return (
-    <mesh position={position}>
-      <sphereBufferGeometry args={[0.03, 24, 24]} />
+    <mesh position={position} ref={ref}>
+      <sphereBufferGeometry args={[0.06, 24, 24]} />
       <meshStandardMaterial color={'white'} />
     </mesh>
   )
-}
+})
 
 const Snows = () => {
-  const snows = [...Array(500)].map((v, i) => {
-    return <Snow key={i} position={generateSnowPosition()} />
+  const numberOfSnow = 300
+  const snowsBase = [...new Array(numberOfSnow)]
+  const snowRefs = useRef<RefObject<THREE.Mesh>[]>([])
+
+  snowsBase.forEach((_, i) => {
+    snowRefs.current[i] = createRef()
   })
-  return <>{snows}</>
+
+  // 雪が降るアニメーション
+  useFrame(() => {
+    snowRefs.current.forEach((ref) => {
+      if (!ref.current) return
+      const minY = -3
+      const maxY = 12
+      const stepY = 0.01
+      const y = ref.current.position.y
+      if (y < minY) {
+        ref.current.position.y = maxY
+      } else {
+        ref.current.position.y -= stepY
+      }
+    })
+  })
+
+  return (
+    <>
+      {snowsBase.map((_, i) => {
+        return <Snow position={generateSnowPosition()} key={i} ref={snowRefs.current[i]} />
+      })}
+    </>
+  )
 }
 
 export default Snows
