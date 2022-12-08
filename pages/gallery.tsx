@@ -3,8 +3,9 @@ import { useState } from 'react'
 // import Canvas from '../component/Canvas'
 import Drawer from '../component/Drawer'
 import Header from '../component/Header'
-import PathTracingCanvas from '../component/PathTracingCanvas'
+import NoSSRCanvas from '../component/NoSSRCanvas'
 import { cities } from '../constant/constant'
+import Crystal from '../component/Crystal'
 
 export const Gallery = () => {
   const [city, setCity] = useState(cities[0].gltfPath)
@@ -13,7 +14,8 @@ export const Gallery = () => {
       <Header className="grow-0" />
       <div className="grow relative flex flex-row">
         {/* <Canvas path={city} className="grow" /> */}
-        <PathTracingCanvas />
+        <NoSSRCanvas />
+        <Crystal />
         <Drawer onChange={setCity} className="grow-0" />
       </div>
     </div>

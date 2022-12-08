@@ -7,7 +7,6 @@ import { Pathtracer, usePathtracer } from '@react-three/gpu-pathtracer'
 
 import Controls from './Controls'
 import Model from './Model'
-import Crystal from './Crystal'
 
 function Thing({ setEnabled }: any) {
   const { clear, update, renderer } = usePathtracer()
@@ -77,7 +76,6 @@ export default function App() {
           </Pathtracer>
         </Suspense>
       </Canvas>
-      <Crystal />
     </>
   )
 }
