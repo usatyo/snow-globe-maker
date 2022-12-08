@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber'
 import { Environment, OrbitControls, Bounds } from '@react-three/drei'
-import { Suspense, useLayoutEffect, useRef, useState } from 'react'
+import { Suspense, useLayoutEffect, useState } from 'react'
 import { useControls } from 'leva'
 
 import { Pathtracer, usePathtracer } from '@react-three/gpu-pathtracer'
@@ -12,7 +12,7 @@ import Crystal from './Crystal'
 function Thing({ setEnabled }) {
   const { clear, update, renderer } = usePathtracer()
 
-  useLayoutEffect(() => update(), [])
+  // useLayoutEffect(() => update(), [])
   const [captureStarted, setCaptureStarted] = useState(false)
 
   const opts = useControls({}, [captureStarted])
@@ -24,7 +24,7 @@ function Thing({ setEnabled }) {
         autoRotateSpeed={2}
         onEnd={() => setEnabled(true)}
         onStart={() => setEnabled(false)}
-        onChange={() => clear()}
+        // onChange={() => clear()}
       />
       <group>
         <Bounds fit clip observe damping={6} margin={1.7}>
@@ -40,8 +40,8 @@ function Thing({ setEnabled }) {
 export default function App() {
   const opts = Controls()
 
-  const [enabled, setEnabled] = useState(true)
-  const infoRef = useRef()
+  // const [enabled, setEnabled] = useState(true)
+  const enabled = false
 
   return (
     <>
@@ -71,7 +71,7 @@ export default function App() {
             tiles={[opts.Rendering_Tiles.x, opts.Rendering_Tiles.y]}
           >
             <Environment preset="apartment" />
-            <Thing setEnabled={setEnabled} />
+            <Thing setEnabled={() => { }} />
           </Pathtracer>
         </Suspense>
       </Canvas>
