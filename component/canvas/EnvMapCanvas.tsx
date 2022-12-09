@@ -21,7 +21,8 @@ export default function EnvMapCanvas() {
         }}
         gl={{
           preserveDrawingBuffer: true,
-          pixelRatio: devicePixelRatio
+          pixelRatio: devicePixelRatio,
+          antialias: true
         }}
       >
         <Environment preset="apartment" />

@@ -21,6 +21,7 @@ const inSnowGlobe = (position: Vector3, r: number, offset: Vector3) => {
   return x * x + y * y + z * z <= r * r
 }
 
+// -0.5 <= x,y,z <= 0.5, x^2+y^2+z^2=0.5^2 で生成
 const generateRandomSpherePosition = (): Vector3 => {
   let x = 0,
     y = 0,
@@ -38,7 +39,7 @@ const generateRandomSpherePosition = (): Vector3 => {
 const generateRandomTopSpherePosition = (): Vector3 => {
   const x = (Math.random() - 0.5) * 0.8
   const z = (Math.random() - 0.5) * 0.8
-  const y = Math.sqrt(0.5 * 0.5 - x * x - z * z)
+  const y = Math.sqrt(0.5 * 0.5 - x * x - z * z) * 0.99 // 0.99は境界チェックを避けるため
   return [x, y, z]
 }
 
@@ -62,7 +63,7 @@ const Snow = forwardRef<THREE.Mesh, SnowProps>(({ position, size }, ref) => {
 
 const Snows = () => {
   const snowsBase = [...new Array(SNOW_NUMBER)]
-  const snowRefs = useRef<RefObject<THREE.Mesh>[]>([])
+  const snowRefs = useRef<RefObject<THREE.Mesh<THREE.SphereGeometry, THREE.MeshStandardMaterial>>[]>([])
 
   snowsBase.forEach((_, i) => {
     snowRefs.current[i] = createRef()
