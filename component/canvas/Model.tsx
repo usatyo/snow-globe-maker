@@ -7,11 +7,11 @@ import { useGLTF } from '@react-three/drei'
 import { PrimitiveProps } from '@react-three/fiber'
 
 export const Model = (props: PrimitiveProps) => {
-  const { scene } = useGLTF('/tokyo.gltf')
+  const { scene } = useGLTF('/osaka.gltf')
 
   return <primitive {...props} object={scene} />
 }
 
-useGLTF.preload('/tokyo.gltf')
+useGLTF.preload('/osaka.gltf')
 
 export default Model
