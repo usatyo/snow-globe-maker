@@ -5,17 +5,18 @@ import Crystal from '../component/Crystal'
 import Drawer from '../component/Drawer'
 import Header from '../component/Header'
 import EnvMapCanvas from '../component/canvas/EnvMapCanvas'
-import { cities } from '../constant/constant'
+import { backs, cities } from '../constant/constant'
 
 export const Gallery = () => {
   const [city, setCity] = useState(cities[0].gltfPath)
+  const [back, setBack] = useState(backs[0].path)
   return (
     <div className="flex flex-col h-screen bg-gradient-to-br from-base-dark to-black overflow-hidden">
       <Header className="grow-0" />
       <div className="grow relative flex flex-row justify-end">
-        <EnvMapCanvas path={city} />
+        <EnvMapCanvas path={city} backPath={back} />
         <Crystal />
-        <Drawer onChange={setCity} className="grow-0" />
+        <Drawer path={city} onChange={setCity} className="grow-0" />
       </div>
     </div>
   )

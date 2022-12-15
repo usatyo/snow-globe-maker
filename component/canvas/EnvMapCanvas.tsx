@@ -5,7 +5,7 @@ import { Suspense, useState, useEffect, useRef } from 'react'
 import SnowGlobe from './SnowGlobe'
 import Snows from './Snows'
 
-export default function EnvMapCanvas(props: { path: string }) {
+export default function EnvMapCanvas(props: { path: string, backPath: Array<string> }) {
   const [devicePixelRatio, setDevicePixelRatio] = useState(1)
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -29,7 +29,7 @@ export default function EnvMapCanvas(props: { path: string }) {
         }}
         ref={canvasRef}
       >
-        <Environment files={['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png']} background />
+        <Environment files={props.backPath} background />
         <Suspense fallback={null}>
           <SnowGlobe path={props.path} />
           <Snows />
