@@ -13,7 +13,7 @@ export const Gallery = () => {
     <div className="flex flex-col h-screen bg-gradient-to-br from-base-dark to-black overflow-hidden">
       <Header className="grow-0" />
       <div className="grow relative flex flex-row justify-end">
-        <EnvMapCanvas />
+        <EnvMapCanvas path={city} />
         <Crystal />
         <Drawer onChange={setCity} className="grow-0" />
       </div>

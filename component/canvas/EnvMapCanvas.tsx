@@ -5,7 +5,7 @@ import { Suspense, useState, useEffect } from 'react'
 import SnowGlobe from './SnowGlobe'
 import Snows from './Snows'
 
-export default function EnvMapCanvas() {
+export default function EnvMapCanvas(props: {path:string}) {
   const [devicePixelRatio, setDevicePixelRatio] = useState(1)
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function EnvMapCanvas() {
       >
         <Environment preset="apartment" />
         <Suspense fallback={null}>
-          <SnowGlobe />
+          <SnowGlobe path={props.path} />
           <Snows />
         </Suspense>
       </Canvas>

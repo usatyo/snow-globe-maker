@@ -4,8 +4,7 @@ type DataType = {
 }
 
 export const cities: Array<DataType> = [
-  { name: 'Sapporo', gltfPath: 'monkey.gltf' },
-  { name: 'Sendai', gltfPath: 'sendai.gltf' },
-  { name: 'Niigata', gltfPath: 'niigata.gltf' },
-  { name: 'Tokyo', gltfPath: 'tokyo.gltf' }
+  { name: 'Sapporo', gltfPath: '/sapporo.glb' },
+  { name: 'Tokyo', gltfPath: '/tokyo.glb' },
+  { name: 'Osaka', gltfPath: '/osaka.glb' },
 ]
