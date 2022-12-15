@@ -6,7 +6,7 @@ import SnowGlobe from './SnowGlobe'
 import Snows from './Snows'
 import TableModel from './TableModel'
 
-export default function EnvMapCanvas(props: { path: string; backPath: Array<string> }) {
+export default function EnvMapCanvas(props: { path: string; backPath: string }) {
   const [devicePixelRatio, setDevicePixelRatio] = useState(1)
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -30,7 +30,7 @@ export default function EnvMapCanvas(props: { path: string; backPath: Array<stri
         }}
         ref={canvasRef}
       >
-        <Environment files={props.backPath} background />
+        <Environment files={props.backPath.split(",")} background />
         <Suspense fallback={null}>
           <SnowGlobe path={props.path} />
           <Snows />

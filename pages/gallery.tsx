@@ -9,14 +9,14 @@ import { backs, cities } from '../constant/constant'
 
 export const Gallery = () => {
   const [city, setCity] = useState(cities[0].gltfPath)
-  const [back, setBack] = useState(backs[0].path)
+  const [back, setBack] = useState(backs[0].path.join())
   return (
     <div className="flex flex-col h-screen bg-gradient-to-br from-base-dark to-black overflow-hidden">
       <Header className="grow-0" />
       <div className="grow relative flex flex-row justify-end">
         <EnvMapCanvas path={city} backPath={back} />
         <Crystal />
-        <Drawer path={city} onCityChange={setCity} className="grow-0" />
+        <Drawer path={city} onCityChange={setCity} onBackChange={setBack} className="grow-0" />
       </div>
     </div>
   )
