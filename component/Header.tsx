@@ -12,7 +12,9 @@ export const Header: FC<Props> = ({ className }) => {
     <div
       className={`flex flex-row justify-between items-center bg-black text-accent-original py-3 px-10 z-40 ${className}`}
     >
-      <Image src={logoImg} alt="logo" className="w-36 object-cover" />
+      <Link href="/">
+        <Image src={logoImg} alt="logo" className="w-36 object-cover" />
+      </Link>
       <div className="flex flex-row items-center space-x-16 text-xl tracking-wider">
         <Link href="/" className="flex flex-col items-center mt-2">
           <p className="text-accent-original text-[8px] -mt-1 tracking-[8px] ml-2">タイトル</p>
