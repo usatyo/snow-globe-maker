@@ -5,7 +5,7 @@ import { Suspense, useState, useEffect } from 'react'
 import SnowGlobe from './SnowGlobe'
 import Snows from './Snows'
 
-export default function EnvMapCanvas(props: {path:string}) {
+export default function EnvMapCanvas(props: { path: string }) {
   const [devicePixelRatio, setDevicePixelRatio] = useState(1)
 
   useEffect(() => {
@@ -15,10 +15,6 @@ export default function EnvMapCanvas(props: {path:string}) {
   return (
     <>
       <Canvas
-        camera={{
-          position: [5, 4.5, -5],
-          fov: 40
-        }}
         gl={{
           preserveDrawingBuffer: true,
           pixelRatio: devicePixelRatio,
