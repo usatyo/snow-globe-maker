@@ -19,7 +19,7 @@ export const Drawer: FC<Props> = ({ path, onChange, className }) => {
     >
       <a href={path} download={path.slice(1)} className="flex items-center space-x-3 hover:opacity-50">
         <BsDownload className="-z-10 text-ice-dark h-7 w-7 ml-3" />
-        <p className="text-ice-dark text-md tracking-wide">download glb</p>
+        <p className="text-ice-dark text-md tracking-wide">Download this model</p>
       </a>
       <hr className='border-1 w-11/12 border-ice-dark' />
       {cities.map((val, idx) => {
