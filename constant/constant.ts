@@ -1,4 +1,4 @@
-type CityType = {
+export type CityType = {
   name: string
   gltfPath: string
 }
@@ -9,7 +9,7 @@ export const cities: Array<CityType> = [
   { name: 'Osaka', gltfPath: '/osaka.glb' }
 ]
 
-type BackType = {
+export type BackType = {
   name: string
   path: Array<string>
 }
