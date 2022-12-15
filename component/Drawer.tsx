@@ -42,7 +42,7 @@ export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className 
         <BsDownload className="-z-10 text-ice-dark h-7 w-7 ml-3" />
         <p className="text-ice-dark text-md tracking-wide">Download this model</p>
       </a>
-      <hr className='border-1 w-11/12 border-ice-dark' />
+      <hr className="border-1 w-11/12 border-ice-dark" />
       {cities.map((val, idx) => {
         return <Option val={val} idx={idx} />
       })}
