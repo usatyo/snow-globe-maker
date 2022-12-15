@@ -15,7 +15,7 @@ export const Gallery = () => {
       <div className="grow relative flex flex-row justify-end">
         <EnvMapCanvas path={city} />
         <Crystal />
-        <Drawer onChange={setCity} className="grow-0" />
+        <Drawer path={city} onChange={setCity} className="grow-0" />
       </div>
     </div>
   )
