@@ -21,7 +21,7 @@ export default function EnvMapCanvas(props: { path: string }) {
           antialias: true
         }}
       >
-        <Environment preset="apartment" />
+        <Environment files={['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png']} background />
         <Suspense fallback={null}>
           <SnowGlobe path={props.path} />
           <Snows />
