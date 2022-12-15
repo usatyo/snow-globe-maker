@@ -15,5 +15,5 @@ type BackType = {
 }
 
 export const backs: Array<BackType> = [
-  { name: "living", path: ['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'] }
+  { name: 'living', path: ['px.png', 'nx.png', 'py.png', 'ny.png', 'pz.png', 'nz.png'] }
 ]
