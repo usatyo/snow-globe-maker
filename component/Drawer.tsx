@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { BsSnow2, BsDownload } from 'react-icons/bs'
 import * as RadioGroup from '@radix-ui/react-radio-group'
-import { backs, BackType, cities, CityType } from '../constant/constant'
+import { backs, cities } from '../constant/constant'
 
 type Props = {
   path: string,
