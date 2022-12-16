@@ -17,4 +17,5 @@ export type BackType = {
 export const backs: Array<BackType> = [
   { name: 'Living Room', path: "living.hdr"},
   { name: 'Studio', path: "studio.hdr"},
+  { name: 'Lounge', path: "lounge.hdr"},
 ]

@@ -64,14 +64,20 @@ const Snow = forwardRef<THREE.Mesh, SnowProps>(({ position, size }, ref) => {
 const Snows = () => {
   const snowsBase = [...new Array(SNOW_NUMBER)]
   const snowRefs = useRef<RefObject<THREE.Mesh<THREE.SphereGeometry, THREE.MeshStandardMaterial>>[]>([])
+  const speed: Array<Array<number>> = []
 
   snowsBase.forEach((_, i) => {
     snowRefs.current[i] = createRef()
+    speed[i] = [
+      (Math.random() - 0.5) * 2,
+      (Math.random() + 0.5) * 1.5,
+      (Math.random() - 0.5) * 2
+    ]
   })
 
   // 雪が降るアニメーション
   useFrame(() => {
-    snowRefs.current.forEach((ref) => {
+    snowRefs.current.forEach((ref, idx) => {
       if (!ref.current) return
       const position: Vector3 = [ref.current.position.x, ref.current.position.y, ref.current.position.z]
       if (
@@ -83,7 +89,9 @@ const Snows = () => {
         ref.current.position.y = np[1]
         ref.current.position.z = np[2]
       } else {
-        ref.current.position.y -= SNOW_SPEED
+        ref.current.position.x -= SNOW_SPEED * speed[idx][0]
+        ref.current.position.y -= SNOW_SPEED * speed[idx][1]
+        ref.current.position.z -= SNOW_SPEED * speed[idx][2]
       }
     })
   })
