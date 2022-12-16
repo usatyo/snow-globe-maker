@@ -68,11 +68,7 @@ const Snows = () => {
 
   snowsBase.forEach((_, i) => {
     snowRefs.current[i] = createRef()
-    speed[i] = [
-      (Math.random() - 0.5) * 2,
-      (Math.random() + 0.5) * 1.5,
-      (Math.random() - 0.5) * 2
-    ]
+    speed[i] = [(Math.random() - 0.5) * 2, (Math.random() + 0.5) * 1.5, (Math.random() - 0.5) * 2]
   })
 
   // 雪が降るアニメーション
