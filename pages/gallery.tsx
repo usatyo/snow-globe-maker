@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 // import Canvas from '../component/Canvas'
+import Audio from '../component/Audio'
 import Crystal from '../component/Crystal'
 import Drawer from '../component/Drawer'
 import Header from '../component/Header'
@@ -17,6 +18,7 @@ export const Gallery = () => {
         <EnvMapCanvas path={city} backPath={back} />
         <Crystal />
         <Drawer path={city} onCityChange={setCity} onBackChange={setBack} className="grow-0" />
+        <Audio />
       </div>
     </div>
   )
