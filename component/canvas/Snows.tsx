@@ -64,7 +64,7 @@ const Snow = forwardRef<THREE.Mesh, SnowProps>(({ position, size }, ref) => {
 const Snows = () => {
   const snowsBase = [...new Array(SNOW_NUMBER)]
   const snowRefs = useRef<RefObject<THREE.Mesh<THREE.SphereGeometry, THREE.MeshStandardMaterial>>[]>([])
-  const speed: Array<Array<number>> = []
+  const speed: Array<Vector3> = []
 
   snowsBase.forEach((_, i) => {
     snowRefs.current[i] = createRef()
