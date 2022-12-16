@@ -33,12 +33,8 @@ const Option = (props: { val: string, name: string, idx: number }) => {
 export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className }) => {
   return (
     <div className='h-full bg-base-light/30 flex flex-col p-10 space-y-8'>
-      <a href={path} download={path.slice(1)} className="flex items-center space-x-3 hover:opacity-50">
-        <BsDownload className="text-ice-dark h-7 w-7 ml-3" />
-        <p className="text-ice-dark text-md tracking-wide">Download this model</p>
-      </a>
       <hr className="border-1 w-11/12 border-ice-dark" />
-      <p className='text-ice-dark text-2xl'>Place</p>
+      <p className='text-ice-dark text-2xl tracking-wide'>Place</p>
       <RadioGroup.Root
         defaultChecked
         defaultValue={cities[0].gltfPath}
@@ -50,17 +46,22 @@ export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className 
         })}
       </RadioGroup.Root>
       <hr className="border-1 w-11/12 border-ice-dark" />
-      <p className='text-ice-dark text-2xl'>Back</p>
+      <p className='text-ice-dark text-2xl tracking-wide'>Background</p>
       <RadioGroup.Root
         defaultChecked
-        defaultValue={backs[0].path.join()}
+        defaultValue={backs[0].path}
         onValueChange={onBackChange}
         className={`z-30 flex flex-col items-start space-y-7 w-[500px] ${className}`}
       >
         {backs.map((val, idx) => {
-          return <Option val={val.path.join()} name={val.name} idx={idx} />
+          return <Option val={val.path} name={val.name} idx={idx} />
         })}
       </RadioGroup.Root>
+      <hr className="border-1 w-11/12 border-ice-dark" />
+      <a href={path} download={path.slice(1)} className="flex items-center space-x-3 hover:opacity-50">
+        <BsDownload className="text-ice-dark h-7 w-7 ml-3" />
+        <p className="text-ice-dark text-md tracking-wide">Download this model</p>
+      </a>
     </div>
   )
 }

@@ -30,7 +30,7 @@ export default function EnvMapCanvas(props: { path: string; backPath: string }) 
         }}
         ref={canvasRef}
       >
-        <Environment files={props.backPath.split(",")} background />
+        <Environment files={props.backPath} background />
         <Suspense fallback={null}>
           <SnowGlobe path={props.path} />
           <Snows />

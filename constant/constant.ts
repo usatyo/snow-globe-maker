@@ -11,9 +11,10 @@ export const cities: Array<CityType> = [
 
 export type BackType = {
   name: string
-  path: Array<string>
+  path: string
 }
 
 export const backs: Array<BackType> = [
-  { name: 'Living room', path: ['liv/px.png', 'liv/nx.png', 'liv/py.png', 'liv/ny.png', 'liv/pz.png', 'liv/nz.png']}
+  { name: 'Living Room', path: "living.hdr"},
+  { name: 'Studio', path: "studio.hdr"},
 ]

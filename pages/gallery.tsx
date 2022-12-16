@@ -9,7 +9,7 @@ import { backs, cities } from '../constant/constant'
 
 export const Gallery = () => {
   const [city, setCity] = useState(cities[0].gltfPath)
-  const [back, setBack] = useState(backs[0].path.join())
+  const [back, setBack] = useState(backs[0].path)
   return (
     <div className="flex flex-col h-screen bg-gradient-to-br from-base-dark to-black overflow-hidden">
       <Header className="grow-0" />
