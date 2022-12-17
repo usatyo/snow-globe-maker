@@ -4,13 +4,14 @@ import * as RadioGroup from '@radix-ui/react-radio-group'
 import { backs, cities } from '../constant/constant'
 
 type Props = {
-  path: string,
+  path: string
+  isOpen: boolean
   onCityChange?: (val: string) => void
   onBackChange?: (val: string) => void
   className?: string
 }
 
-const Option = (props: { val: string, name: string, idx: number }) => {
+const Option = (props: { val: string; name: string; idx: number }) => {
   return (
     <div key={props.idx} className="flex flex-col items-end space-y-1">
       <div className="flex flex-row justify-around items-center space-x-3 border-b-2 border-ice-dark pl-2">
@@ -30,11 +31,12 @@ const Option = (props: { val: string, name: string, idx: number }) => {
   )
 }
 
-export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className }) => {
+export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className, isOpen }) => {
+  if (!isOpen) return null
   return (
-    <div className='h-full bg-base-light/30 flex flex-col p-10 space-y-8'>
+    <div className="h-full bg-base-light/30 flex flex-col p-10 space-y-8">
       <hr className="border-1 w-11/12 border-ice-dark" />
-      <p className='text-ice-dark text-2xl tracking-wide'>Place</p>
+      <p className="text-ice-dark text-2xl tracking-wide">Place</p>
       <RadioGroup.Root
         defaultChecked
         defaultValue={cities[0].gltfPath}
@@ -46,7 +48,7 @@ export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className 
         })}
       </RadioGroup.Root>
       <hr className="border-1 w-11/12 border-ice-dark" />
-      <p className='text-ice-dark text-2xl tracking-wide'>Background</p>
+      <p className="text-ice-dark text-2xl tracking-wide">Background</p>
       <RadioGroup.Root
         defaultChecked
         defaultValue={backs[0].path}
