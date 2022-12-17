@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-// import Canvas from '../component/Canvas'
 import Audio from '../component/Audio'
 import Crystal from '../component/Crystal'
 import Drawer from '../component/Drawer'
