@@ -15,9 +15,10 @@ export const Gallery = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(true)
 
   return (
-    <div className="flex flex-col h-screen bg-gradient-to-br from-base-dark to-black overflow-hidden">
-      <Header className="grow-0" />
-      <div className="grow relative flex flex-row">
+    <div className="h-screen bg-gradient-to-br from-base-dark to-black overflow-hidden">
+      <Header className="" />
+      {/* y方向スクロールに対応するため、コンテンツは固定値でflexを未使用 */}
+      <div className="relative flex flex-row h-[calc(100%_-_90px)]">
         <div className={isDrawerOpen ? 'relative w-3/4' : 'relative w-full'}>
           <EnvMapCanvas path={city} backPath={back} />
           <FullScreenButton
