@@ -5,6 +5,8 @@ import { backs, BackType, cities, CityType } from '../constant/constant'
 
 type Props = {
   path: string
+
+  isOpen: boolean
   onCityChange?: (val: string) => void
   onBackChange?: (val: string) => void
   className?: string
@@ -33,7 +35,8 @@ const Option = (props: { val: string; name: string; idx: number }) => {
   )
 }
 
-export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className }) => {
+export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className, isOpen }) => {
+  if (!isOpen) return null
   return (
     <div className="h-full bg-base-light/10 flex flex-col py-2 px-10 space-y-5 bg-blur-md w-[30%] text-center">
       {/* <hr className="border-1 w-11/12 border-ice-dark" /> */}
