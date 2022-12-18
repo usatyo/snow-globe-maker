@@ -13,7 +13,7 @@ type Props = {
 const Option = (props: { val: string; name: string; idx: number }) => {
   return (
     <div key={props.idx} className="flex flex-col items-end space-y-1 mx-auto ">
-      <div className=" flex flex-row  items-center space-x-3  pl-2 w-32 ml-2">
+      <div className=" flex flex-row  items-center space-x-3  pl-2 w-36 ml-2">
         <RadioGroup.Item
           value={props.val}
           id={props.name}
@@ -22,7 +22,7 @@ const Option = (props: { val: string; name: string; idx: number }) => {
           <RadioGroup.Indicator className="flex justify-center items-center h-full w-full after:h-full after:w-full after:bg-white after:rounded-full" />
         </RadioGroup.Item>
         <label
-          className="text-xl font-italianno text-accent-original font-mono hover:opacity-50 tracking-wider text-center transition-all duration-300"
+          className="text-[1.5rem] font-italianno text-accent-original font-mono hover:opacity-50 tracking-wider text-center transition-all duration-300"
           htmlFor={props.name}
         >
           {props.name}
@@ -35,7 +35,7 @@ const Option = (props: { val: string; name: string; idx: number }) => {
 
 export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className }) => {
   return (
-    <div className="h-full bg-base-light/10 flex flex-col p-10 space-y-5 bg-blur-md w-[30%] text-center">
+    <div className="h-full bg-base-light/10 flex flex-col py-2 px-10 space-y-5 bg-blur-md w-[30%] text-center">
       {/* <hr className="border-1 w-11/12 border-ice-dark" /> */}
       <p className="text-[4rem] text-accent-original font-italianno  tracking-wide">City</p>
       <RadioGroup.Root
