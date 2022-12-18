@@ -36,7 +36,8 @@ module.exports = {
       '5xl': '3.052rem'
     },
     fontFamily: {
-      italianno: ['"Italianno"', 'cursive']
+      italianno: ['"Italianno"', 'cursive'],
+      noto: ['"Noto Serif JP"', 'serif']
     },
     extend: {
       backgroundImage: {

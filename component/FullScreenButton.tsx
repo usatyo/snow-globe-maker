@@ -1,4 +1,5 @@
-import { AiOutlineFullscreen, AiOutlineFullscreenExit } from 'react-icons/ai'
+// import { AiOutlineFullscreen, AiOutlineFullscreenExit } from 'react-icons/ai'
+import { BsChevronDoubleRight, BsChevronDoubleLeft } from 'react-icons/bs'
 import { FC } from 'react'
 
 type FullScreenButtonProps = {
@@ -11,9 +12,9 @@ const FullScreenButton: FC<FullScreenButtonProps> = ({ isFullScreen, onClick, cl
   return (
     <>
       {isFullScreen ? (
-        <AiOutlineFullscreenExit color="white" size={50} onClick={onClick} className={className} />
+        <BsChevronDoubleLeft color="white" size={30} onClick={onClick} className={className} />
       ) : (
-        <AiOutlineFullscreen color="white" size={50} onClick={onClick} className={className} />
+        <BsChevronDoubleRight color="white" size={30} onClick={onClick} className={className} />
       )}
     </>
   )

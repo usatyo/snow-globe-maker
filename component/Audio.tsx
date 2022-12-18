@@ -29,7 +29,7 @@ const Audio = () => {
           className="pointer "
         >
           <TbMusicOff style={{ width: '45px', height: '45px', color: '#CEBF7E', alignItems: 'center' }} />
-          <p className="text-sm text-[#CEBF7E]">SOUND</p>
+          {/* <p className="text-sm text-[#CEBF7E]">SOUND</p> */}
         </button>
       )}
     </div>
