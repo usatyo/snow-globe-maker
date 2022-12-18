@@ -4,7 +4,7 @@ import useSound from 'use-sound'
 
 const Audio = () => {
   const [isPlaying, setIsPlaying] = useState(false)
-  const [play, { stop }] = useSound('/santa.mp3', { loop: true, interrupt: true, volume: 0.3 })
+  const [play, { stop }] = useSound('/night.mp3', { loop: true, interrupt: true, volume: 0.3 })
   return (
     <div className="absolute bottom-10 right-10 z-10">
       {isPlaying ? (
@@ -14,9 +14,10 @@ const Audio = () => {
             stop()
             console.log(isPlaying)
           }}
-          className="pointer"
+          className="pointer text-align-center"
         >
-          <TbMusic style={{ width: '40px', height: '40px', color: '#CEBF7E' }} />
+          <TbMusic style={{ width: '45px', height: '45px', color: '#CEBF7E' }} />
+          <p className="text-sm text-[#CEBF7E]">SOUND</p>
         </button>
       ) : (
         <button
@@ -27,7 +28,8 @@ const Audio = () => {
           }}
           className="pointer "
         >
-          <TbMusicOff style={{ width: '40px', height: '40px', color: '#CEBF7E' }} />
+          <TbMusicOff style={{ width: '45px', height: '45px', color: '#CEBF7E', alignItems: 'center' }} />
+          <p className="text-sm text-[#CEBF7E]">SOUND</p>
         </button>
       )}
     </div>
