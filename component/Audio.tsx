@@ -6,7 +6,7 @@ const Audio = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [play, { stop }] = useSound('/night.mp3', { loop: true, interrupt: true, volume: 0.3 })
   return (
-    <div className="absolute bottom-10 right-10 z-10">
+    <div className="absolute bottom-10 right-10 z-50">
       {isPlaying ? (
         <button
           onClick={() => {

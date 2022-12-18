@@ -34,7 +34,7 @@ const Option = (props: { val: string; name: string; idx: number }) => {
 export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className, isOpen }) => {
   if (!isOpen) return null
   return (
-    <div className="h-full bg-base-light/30 flex flex-col p-10 space-y-8 overflow-y-auto">
+    <div className="h-full bg-base-light/30 flex flex-col p-10 space-y-8 overflow-y-auto overflow-x-clip">
       <hr className="border-1 w-11/12 border-ice-dark" />
       <p className="text-ice-dark text-2xl tracking-wide">Place</p>
       <RadioGroup.Root
