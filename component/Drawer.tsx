@@ -37,36 +37,36 @@ const Option = (props: { val: string; name: string; idx: number }) => {
 export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className, isOpen }) => {
   if (!isOpen) return null
   return (
-    <div className="relative z-20 h-full bg-base-light/10 flex flex-col py-10 px-10 space-y-5 bg-blur-md w-[30%] text-center backdrop-blur-sm overflow-y-auto">
-      {/* <hr className="border-1 w-11/12 border-ice-dark" /> */}
+    <div className="relative z-20 h-full bg-base-light/10 flex flex-col py-10 px-10 space-y-8 bg-blur-md w-[30%] text-center items-center backdrop-blur-sm overflow-y-auto">
+      {/* <hr className="border-1 w-1/6 border-accent-original" /> */}
       <p className="text-[4rem] text-accent-original font-italianno tracking-wide">City</p>
       <RadioGroup.Root
         defaultChecked
         defaultValue={cities[0].gltfPath}
         onValueChange={onCityChange}
-        className={`z-30 flex flex-col items-start space-y-7  ${className}`}
+        className={`z-30 flex flex-col items-start space-y-5  ${className}`}
       >
         {cities.map((val, idx) => {
           return <Option val={val.gltfPath} name={val.name} key={idx} idx={idx} />
         })}
       </RadioGroup.Root>
-      {/* <hr className="border-1 w-11/12 border-ice-dark" /> */}
+      <hr className="border-1 w-5/6 border-accent-original" />
       <p className="text-[4rem] text-accent-original font-italianno tracking-wide">Background</p>
       <RadioGroup.Root
         defaultChecked
         defaultValue={backs[0].path}
         onValueChange={onBackChange}
-        className={`z-30 flex flex-col items-start space-y-7  ${className}`}
+        className={`z-30 flex flex-col items-start space-y-5  ${className}`}
       >
         {backs.map((val, idx) => {
           return <Option val={val.path} name={val.name} idx={idx} key={idx} />
         })}
       </RadioGroup.Root>
+      <hr className="border-1 w-5/6 border-accent-original" />
       <a href={path} download={path.slice(1)} className="flex items-center space-x-3 hover:opacity-50">
-        <BsDownload className="text-accent-original h-5 w-5 ml-3" />
+        <BsDownload className="text-accent-original h-8 w-8 ml-3" />
         <p className="text-accent-original text-sm tracking-wide">Download this model</p>
       </a>
-      {/* <hr className="border-1 w-11/12 border-ice-dark" /> */}
     </div>
   )
 }
