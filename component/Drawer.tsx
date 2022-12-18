@@ -5,7 +5,6 @@ import { backs, BackType, cities, CityType } from '../constant/constant'
 
 type Props = {
   path: string
-
   isOpen: boolean
   onCityChange?: (val: string) => void
   onBackChange?: (val: string) => void
@@ -19,7 +18,7 @@ const Option = (props: { val: string; name: string; idx: number }) => {
         <RadioGroup.Item
           value={props.val}
           id={props.name}
-          className="bg-base-dark rounded-full w-4 h-4 border-2 border-accent-original hover:opacity-70 mr-0.5 transition-all duration-300"
+          className="bg-base-dark rounded-full w-4 h-4 border-2 border-accent-original hover:opacity-70 mr-0.5 transition-all duration-300 "
         >
           <RadioGroup.Indicator className="flex justify-center items-center h-full w-full after:h-full after:w-full after:bg-white after:rounded-full" />
         </RadioGroup.Item>
@@ -38,7 +37,7 @@ const Option = (props: { val: string; name: string; idx: number }) => {
 export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className, isOpen }) => {
   if (!isOpen) return null
   return (
-    <div className="h-full bg-base-light/10 flex flex-col py-2 px-10 space-y-5 bg-blur-md w-[30%] text-center">
+    <div className="h-full bg-base-light/10 flex flex-col py-2 px-10 space-y-5 bg-blur-md w-[30%] text-center backdrop-blur-sm ">
       {/* <hr className="border-1 w-11/12 border-ice-dark" /> */}
       <p className="text-[4rem] text-accent-original font-italianno  tracking-wide">City</p>
       <RadioGroup.Root
