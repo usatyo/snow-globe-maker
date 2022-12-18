@@ -37,9 +37,9 @@ const Option = (props: { val: string; name: string; idx: number }) => {
 export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className, isOpen }) => {
   if (!isOpen) return null
   return (
-    <div className="h-full bg-base-light/10 flex flex-col py-2 px-10 space-y-5 bg-blur-md w-[30%] text-center backdrop-blur-sm ">
+    <div className="relative z-20 h-full bg-base-light/10 flex flex-col py-10 px-10 space-y-5 bg-blur-md w-[30%] text-center backdrop-blur-sm overflow-y-auto">
       {/* <hr className="border-1 w-11/12 border-ice-dark" /> */}
-      <p className="text-[4rem] text-accent-original font-italianno  tracking-wide">City</p>
+      <p className="text-[4rem] text-accent-original font-italianno tracking-wide">City</p>
       <RadioGroup.Root
         defaultChecked
         defaultValue={cities[0].gltfPath}

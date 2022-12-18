@@ -14,16 +14,16 @@ export default function Home() {
       <div className="grow flex flex-row bg-base-dark">
         <div className=" grow-0 w-2/5 items-center text-center align-middle mt-[20%]">
           <p className=" text-accent-original text-[1.5rem]  tracking-[3px] font-noto font-extralight">
-            ー　あなたの街にも、初雪を　ー
+            ─　あなたの街にも、初雪を　─
           </p>
           <button
             id="button"
             onClick={() => {
               router.push('/gallery')
             }}
-            className="relative cursor-pointer border-2 border-accent-original px-20 py-6 mt-10 font-italianno text-accent-original text-2xl hover:bg-accent-original z-20 transition-all duration-500 hover:text-base-dark"
+            className="relative cursor-pointer border-[1px] border-accent-original px-10 py-6 mt-16 text-accent-original text-md tracking-widest font-noto hover:bg-accent-original z-20 transition-all duration-500 hover:text-base-dark"
           >
-            Garaly
+            ギャラリーへ
           </button>
         </div>
 
