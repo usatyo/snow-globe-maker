@@ -122,7 +122,7 @@ export const Canvas: FC<Props> = ({ path, onLoading, onError, className }) => {
 
   return (
     <div className={`relative h-full w-full flex flex-row ${className}`}>
-      <div className="absolute top-10 bottom-10 left-10 right-11 z-30 bg-black items-stretch border-2 border-accent-original">
+      <div className="absolute top-10 bottom-10 left-10 right-11 z-30 items-stretch border-2 border-accent-original">
         <div ref={containerRef} className="h-full w-full"></div>
       </div>
       <Crystal />
