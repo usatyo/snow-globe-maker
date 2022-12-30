@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { Environment, Loader } from '@react-three/drei'
+import { Environment, Loader, SpotLight } from '@react-three/drei'
 import { Suspense, useState, useEffect, useRef } from 'react'
 
 import SnowGlobe from './SnowGlobe'
@@ -20,7 +20,8 @@ export default function EnvMapCanvas(props: { path: string; backPath: string }) 
         gl={{
           preserveDrawingBuffer: true,
           pixelRatio: devicePixelRatio,
-          antialias: true
+          antialias: true,
+          toneMappingExposure: 0.4
         }}
         onMouseEnter={() => {
           if (canvasRef.current) canvasRef.current.style.cursor = 'grab'
@@ -32,6 +33,17 @@ export default function EnvMapCanvas(props: { path: string; backPath: string }) 
       >
         <Environment files={props.backPath} background />
         <Suspense fallback={null}>
+          <SpotLight
+            radiusTop={0}
+            radiusBottom={0}
+            position={[0, 20, 0]}
+            intensity={10}
+            color={0xffffff}
+            distance={100}
+            angle={0.6}
+            attenuation={20}
+            penumbra={0.2}
+          />
           <SnowGlobe path={props.path} />
           <Snows />
           <TableModel object={null} position={[0, -8, 0]} scale={[4, 1, 4]} />
