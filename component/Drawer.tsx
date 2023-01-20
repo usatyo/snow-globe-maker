@@ -1,7 +1,8 @@
 import { FC } from 'react'
 import { BsSnow2, BsDownload } from 'react-icons/bs'
 import * as RadioGroup from '@radix-ui/react-radio-group'
-import { backs, BackType, cities, CityType } from '../constant/constant'
+import { backs, BackType, cities, CityType, shareUrl } from '../constant/constant'
+import { TwitterIcon, TwitterShareButton } from 'react-share'
 
 type Props = {
   path: string
@@ -67,6 +68,7 @@ export const Drawer: FC<Props> = ({ path, onCityChange, onBackChange, className,
         <BsDownload className="text-accent-original h-8 w-8 ml-3" />
         <p className="text-accent-original text-sm tracking-wide">Download this model</p>
       </a>
+      <TwitterShareButton url={shareUrl}><TwitterIcon size={32} /></TwitterShareButton>
     </div>
   )
 }
