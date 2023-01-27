@@ -10,11 +10,11 @@ type Props = {
 export const Drawer: FC<Props> = ({ isOpen, titles, childrens }) => {
   if (!isOpen) return null
   return (
-    <div className="relative z-20 h-full bg-base-light/10 flex flex-col py-10 px-10 space-y-8 bg-blur-md w-[30%] text-center items-center backdrop-blur-sm overflow-y-auto">
+    <div className="relative z-20 h-full bg-base-light/10 flex flex-col py-10 px-10 space-y-8 bg-blur-md w-[30%] text-center items-center backdrop-blur-sm overflow-y-auto text-accent-original font-italianno tracking-wide">
       <Tabs.Root defaultValue={"0"}>
         <Tabs.List>
           {titles.map((title, idx) =>
-            <Tabs.Trigger value={idx.toString()} key={idx}>
+            <Tabs.Trigger value={idx.toString()} key={idx} className={"text-[4rem] text-accent-original font-italianno tracking-wide"}>
               {title}
             </Tabs.Trigger>
           )}

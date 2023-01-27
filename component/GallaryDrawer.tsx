@@ -2,7 +2,7 @@ import * as RadioGroup from '@radix-ui/react-radio-group'
 import { FC, ReactNode } from "react"
 import { BsDownload } from 'react-icons/bs'
 import { TwitterIcon, TwitterShareButton } from 'react-share'
-import { backs, cities, shareUrl } from "../constant/constant"
+import { scenes, cities, shareUrl } from "../constant/constant"
 import Audio from './Audio'
 import Drawer from "./Drawer"
 
@@ -10,7 +10,7 @@ type Props = {
   isOpen: boolean
   cityPath: string
   onCityChange: (city: string) => void
-  onBackChange: (back: string) => void
+  onSceneChange: (scene: string) => void
 }
 
 const Option = (props: { val: string; name: string; idx: number }) => {
@@ -53,18 +53,18 @@ const CityContent = (props: { onChange: (city: string) => void }) => {
   )
 }
 
-const BackContent = (props: { onChange: (city: string) => void }) => {
+const SceneContent = (props: { onChange: (city: string) => void }) => {
   return (
     <div>
     {/* <div className="relative z-20 h-full bg-base-light/10 flex flex-col py-10 px-10 space-y-8 bg-blur-md w-[30%] text-center items-center backdrop-blur-sm overflow-y-auto"> */}
-      <p className="text-[4rem] text-accent-original font-italianno tracking-wide">Background</p>
+      <p className="text-[4rem] text-accent-original font-italianno tracking-wide">Scene</p>
       <RadioGroup.Root
         defaultChecked
-        defaultValue={backs[0].path}
+        defaultValue={scenes[0].path}
         onValueChange={props.onChange}
         className={"z-30 flex flex-col items-start space-y-5"}
       >
-        {backs.map((val, idx) => {
+        {scenes.map((val, idx) => {
           return <Option val={val.path} name={val.name} idx={idx} key={idx} />
         })}
       </RadioGroup.Root>
@@ -85,15 +85,15 @@ const OptionContent = (props: { path: string }) => {
   )
 }
 
-export const GallaryDrawer: FC<Props> = ({ isOpen, onBackChange, onCityChange, cityPath }) => {
+export const GallaryDrawer: FC<Props> = ({ isOpen, onSceneChange, onCityChange, cityPath }) => {
   const titles: string[] = [
-    "city",
-    "background",
-    "option"
+    "City",
+    "Scene",
+    "Option"
   ]
   const childrens: ReactNode[] = [
     <CityContent onChange={onCityChange} />,
-    <BackContent onChange={onBackChange} />,
+    <SceneContent onChange={onSceneChange} />,
     <OptionContent path={cityPath} />
   ]
   return (

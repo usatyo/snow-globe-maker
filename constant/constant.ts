@@ -11,12 +11,12 @@ export const cities: Array<CityType> = [
   { name: 'Osaka', gltfPath: '/osaka.glb' }
 ]
 
-export type BackType = {
+export type SceneType = {
   name: string
   path: string
 }
 
-export const backs: Array<BackType> = [
+export const scenes: Array<SceneType> = [
   { name: 'Living Room', path: 'living.hdr' },
   { name: 'Studio', path: 'studio.hdr' },
   { name: 'Lounge', path: 'lounge.hdr' },
