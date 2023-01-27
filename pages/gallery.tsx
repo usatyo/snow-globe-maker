@@ -1,13 +1,12 @@
 import { useState } from 'react'
 
 // import Canvas from '../component/Canvas'
-import Audio from '../component/Audio'
 import Crystal from '../component/Crystal'
-import Drawer from '../component/Drawer'
 import FullScreenButton from '../component/FullScreenButton'
 import Header from '../component/Header'
 import EnvMapCanvas from '../component/canvas/EnvMapCanvas'
 import { backs, cities } from '../constant/constant'
+import GallaryDrawer from '../component/GallaryDrawer'
 
 export const Gallery = () => {
   const [city, setCity] = useState(cities[0].gltfPath)
@@ -30,8 +29,7 @@ export const Gallery = () => {
           />
         </div>
         <Crystal />
-        <Drawer path={city} onCityChange={setCity} onBackChange={setBack} className="grow-1" isOpen={isDrawerOpen} />
-        <Audio />
+        <GallaryDrawer isOpen={isDrawerOpen} onCityChange={setCity} onBackChange={setBack} cityPath="" />
       </div>
     </div>
   )

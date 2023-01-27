@@ -25,9 +25,14 @@ export const Header: FC<Props> = ({ className }) => {
         </Link>
         <Link href="/gallery" className="flex flex-col items-center mt-2 ">
           <p className="text-accent-original text-[8px] -mt-1 tracking-[8px] ml-2">ギャラリー</p>
-          {/* <p className="relative font-italianno text-3xl after:absolute after:h-[1px] hover:after:w-[120%] duration-300 after:top-11 after:left-[-10%] after:bg-accent-original "> */}
           <p className="relative font-italianno text-3xl hover:after:opacity-100 after:absolute after:h-[1px] after:w-[120%] after:top-11 after:left-[-10%] after:bg-accent-original after:opacity-0 after:transition-all after:duration-700">
             Gallery
+          </p>
+        </Link>
+        <Link href="/original" className="flex flex-col items-center mt-2 ">
+          <p className="text-accent-original text-[8px] -mt-1 tracking-[8px] ml-2">オリジナル</p>
+          <p className="relative font-italianno text-3xl hover:after:opacity-100 after:absolute after:h-[1px] after:w-[120%] after:top-11 after:left-[-10%] after:bg-accent-original after:opacity-0 after:transition-all after:duration-700">
+            Original
           </p>
         </Link>
       </div>
