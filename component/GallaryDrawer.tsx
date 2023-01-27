@@ -1,6 +1,7 @@
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import { FC, ReactNode } from "react"
 import { TbCloudDownload } from 'react-icons/tb'
+import { BsCloudDownload } from 'react-icons/bs'
 import { TwitterIcon, TwitterShareButton } from 'react-share'
 import { scenes, cities, shareUrl } from "../constant/constant"
 import Audio from './Audio'
@@ -15,8 +16,8 @@ type Props = {
 
 const Option = (props: { val: string; name: string; idx: number }) => {
   return (
-    <div key={props.idx} className="flex flex-col items-end space-y-1 mx-auto ">
-      <div className=" flex flex-row  items-center space-x-3  pl-2 w-36 ml-2">
+    <div key={props.idx} className="mx-auto">
+      <div className=" flex flex-row items-center space-x-3 w-36">
         <RadioGroup.Item
           value={props.val}
           id={props.name}
@@ -25,7 +26,7 @@ const Option = (props: { val: string; name: string; idx: number }) => {
           <RadioGroup.Indicator className="flex justify-center items-center h-full w-full after:h-full after:w-full after:bg-white after:rounded-full" />
         </RadioGroup.Item>
         <label
-          className="text-[1.5rem] font-italianno text-accent-original font-mono hover:opacity-50 tracking-wider text-center transition-all duration-300"
+          className="text-[1.7rem] font-italianno text-accent-original font-mono hover:opacity-50 tracking-wider text-center transition-all duration-300"
           htmlFor={props.name}
         >
           {props.name}
@@ -38,7 +39,6 @@ const Option = (props: { val: string; name: string; idx: number }) => {
 const CityContent = (props: { onChange: (city: string) => void }) => {
   return (
     <div>
-      {/* <p className="text-[4rem] text-accent-original font-italianno tracking-wide">City</p> */}
       <RadioGroup.Root
         defaultChecked
         defaultValue={cities[0].gltfPath}
@@ -56,8 +56,6 @@ const CityContent = (props: { onChange: (city: string) => void }) => {
 const SceneContent = (props: { onChange: (city: string) => void }) => {
   return (
     <div>
-      {/* <div className="relative z-20 h-full bg-base-light/10 flex flex-col py-10 px-10 space-y-8 bg-blur-md w-[30%] text-center items-center backdrop-blur-sm overflow-y-auto"> */}
-      {/* <p className="text-[4rem] text-accent-original font-italianno tracking-wide">Scene</p> */}
       <RadioGroup.Root
         defaultChecked
         defaultValue={scenes[0].path}
@@ -74,16 +72,23 @@ const SceneContent = (props: { onChange: (city: string) => void }) => {
 
 const OptionContent = (props: { path: string }) => {
   return (
-    <div className='flex flex-col space-y-10'>
-      <a href={props.path} download={props.path?.slice(1)} className="flex items-center space-x-3 hover:opacity-50">
-        <TbCloudDownload className="text-accent-original h-8 w-8 ml-3" />
-        <p className="text-accent-original text-md tracking-wide">Download this model</p>
-      </a>
-      <TwitterShareButton url={shareUrl} className="flex items-center space-x-3 hover:opacity-50">
-        <TwitterIcon size={32} className="ml-3" />
-        <p className="text-accent-original text-md tracking-wide">Share this model</p>
-      </TwitterShareButton>
-      <Audio />
+    <div className='flex flex-col space-y-10 items-start'>
+      <div className='mx-auto'>
+        <Audio className='w-64' />
+      </div>
+      <div className='mx-auto'>
+        <a href={props.path} download={props.path?.slice(1)} className="flex items-center space-x-3 hover:opacity-50 w-64">
+          <BsCloudDownload className="text-accent-original h-8 w-8 ml-3" />
+          <p className="text-accent-original text-md tracking-wide">Download this model</p>
+        </a>
+      </div>
+      <div className='mx-auto'>
+
+        <TwitterShareButton url={shareUrl} className="flex items-center space-x-3 hover:opacity-50 w-64">
+          <TwitterIcon size={32} className="ml-3" />
+          <p className="text-accent-original text-md tracking-wide">Share this model</p>
+        </TwitterShareButton>
+      </div>
     </div>
   )
 }

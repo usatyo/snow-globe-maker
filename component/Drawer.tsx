@@ -14,7 +14,7 @@ export const Drawer: FC<Props> = ({ isOpen, titles, childrens }) => {
       <Tabs.Root defaultValue={"0"}>
         <Tabs.List>
           {titles.map((title, idx) =>
-            <Tabs.Trigger value={idx.toString()} key={idx} className={"text-[4rem] text-accent-original font-italianno tracking-wide"}>
+            <Tabs.Trigger value={idx.toString()} key={idx} className={'mx-5 mb-10 text-accent-original font-italianno tracking-wide text-[2.5rem] opacity-30 data-[state=active]:opacity-100 duration-300'}>
               {title}
             </Tabs.Trigger>
           )}
