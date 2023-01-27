@@ -1,6 +1,6 @@
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import { FC, ReactNode } from "react"
-import { BsDownload } from 'react-icons/bs'
+import { TbCloudDownload } from 'react-icons/tb'
 import { TwitterIcon, TwitterShareButton } from 'react-share'
 import { scenes, cities, shareUrl } from "../constant/constant"
 import Audio from './Audio'
@@ -38,7 +38,7 @@ const Option = (props: { val: string; name: string; idx: number }) => {
 const CityContent = (props: { onChange: (city: string) => void }) => {
   return (
     <div>
-      <p className="text-[4rem] text-accent-original font-italianno tracking-wide">City</p>
+      {/* <p className="text-[4rem] text-accent-original font-italianno tracking-wide">City</p> */}
       <RadioGroup.Root
         defaultChecked
         defaultValue={cities[0].gltfPath}
@@ -56,8 +56,8 @@ const CityContent = (props: { onChange: (city: string) => void }) => {
 const SceneContent = (props: { onChange: (city: string) => void }) => {
   return (
     <div>
-    {/* <div className="relative z-20 h-full bg-base-light/10 flex flex-col py-10 px-10 space-y-8 bg-blur-md w-[30%] text-center items-center backdrop-blur-sm overflow-y-auto"> */}
-      <p className="text-[4rem] text-accent-original font-italianno tracking-wide">Scene</p>
+      {/* <div className="relative z-20 h-full bg-base-light/10 flex flex-col py-10 px-10 space-y-8 bg-blur-md w-[30%] text-center items-center backdrop-blur-sm overflow-y-auto"> */}
+      {/* <p className="text-[4rem] text-accent-original font-italianno tracking-wide">Scene</p> */}
       <RadioGroup.Root
         defaultChecked
         defaultValue={scenes[0].path}
@@ -74,12 +74,15 @@ const SceneContent = (props: { onChange: (city: string) => void }) => {
 
 const OptionContent = (props: { path: string }) => {
   return (
-    <div>
+    <div className='flex flex-col space-y-10'>
       <a href={props.path} download={props.path?.slice(1)} className="flex items-center space-x-3 hover:opacity-50">
-        <BsDownload className="text-accent-original h-8 w-8 ml-3" />
-        <p className="text-accent-original text-sm tracking-wide">Download this model</p>
+        <TbCloudDownload className="text-accent-original h-8 w-8 ml-3" />
+        <p className="text-accent-original text-md tracking-wide">Download this model</p>
       </a>
-      <TwitterShareButton url={shareUrl}><TwitterIcon size={32} /></TwitterShareButton>
+      <TwitterShareButton url={shareUrl} className="flex items-center space-x-3 hover:opacity-50">
+        <TwitterIcon size={32} className="ml-3" />
+        <p className="text-accent-original text-md tracking-wide">Share this model</p>
+      </TwitterShareButton>
       <Audio />
     </div>
   )

@@ -6,7 +6,7 @@ const Audio = () => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [play, { stop }] = useSound('/night.mp3', { loop: true, interrupt: true, volume: 0.3 })
   return (
-    <div className="absolute bottom-10 right-10 z-50">
+    <div>
       {isPlaying ? (
         <button
           onClick={() => {
@@ -14,10 +14,10 @@ const Audio = () => {
             stop()
             console.log(isPlaying)
           }}
-          className="pointer text-align-center"
+          className="flex items-center space-x-3 hover:opacity-50"
         >
-          <TbMusic style={{ width: '45px', height: '45px', color: '#CEBF7E' }} />
-          <p className="text-sm text-[#CEBF7E]">SOUND</p>
+          <TbMusic className="text-accent-original h-8 w-8 ml-3" />
+          <p className="text-accent-original text-md tracking-wide">SOUND</p>
         </button>
       ) : (
         <button
@@ -26,10 +26,10 @@ const Audio = () => {
             play()
             console.log(isPlaying)
           }}
-          className="pointer "
+          className="flex items-center space-x-3 hover:opacity-50"
         >
-          <TbMusicOff style={{ width: '45px', height: '45px', color: '#CEBF7E', alignItems: 'center' }} />
-          {/* <p className="text-sm text-[#CEBF7E]">SOUND</p> */}
+          <TbMusicOff className="text-accent-original h-8 w-8 ml-3" />
+          <p className="text-accent-original text-md tracking-wide">SOUND</p>
         </button>
       )}
     </div>
