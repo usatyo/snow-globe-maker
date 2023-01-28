@@ -14,10 +14,10 @@ type Props = {
   onSceneChange: (scene: string) => void
 }
 
-const Option = (props: { val: string; name: string; idx: number }) => {
+const Option = (props: { val: string; name: string; ruby: string; idx: number }) => {
   return (
     <div key={props.idx} className="mx-auto">
-      <div className=" flex flex-row items-center space-x-3 w-36">
+      <div className=" flex flex-row items-center space-x-3 w-56">
         <RadioGroup.Item
           value={props.val}
           id={props.name}
@@ -31,6 +31,7 @@ const Option = (props: { val: string; name: string; idx: number }) => {
         >
           {props.name}
         </label>
+        <p className='text-[0.7rem] text-accent-original tracking-wider'>{props.ruby}</p>
       </div>
     </div>
   )
@@ -46,7 +47,7 @@ const CityContent = (props: { onChange: (city: string) => void }) => {
         className="z-30 flex flex-col items-start space-y-5"
       >
         {cities.map((val, idx) => {
-          return <Option val={val.gltfPath} name={val.name} key={idx} idx={idx} />
+          return <Option val={val.gltfPath} name={val.name} ruby={val.ruby} key={idx} idx={idx} />
         })}
       </RadioGroup.Root>
     </div>
@@ -63,7 +64,7 @@ const SceneContent = (props: { onChange: (city: string) => void }) => {
         className={"z-30 flex flex-col items-start space-y-5"}
       >
         {scenes.map((val, idx) => {
-          return <Option val={val.path} name={val.name} idx={idx} key={idx} />
+          return <Option val={val.path} name={val.name} ruby={val.ruby} idx={idx} key={idx} />
         })}
       </RadioGroup.Root>
     </div>
@@ -74,17 +75,17 @@ const OptionContent = (props: { path: string }) => {
   return (
     <div className='flex flex-col space-y-10 items-start'>
       <div className='mx-auto'>
-        <Audio className='w-64' />
+        <Audio className=' hover:opacity-70 w-64 transition-all duration-300' />
       </div>
       <div className='mx-auto'>
-        <a href={props.path} download={props.path?.slice(1)} className="flex items-center space-x-3 hover:opacity-50 w-64">
+        <a href={props.path} download={props.path?.slice(1)} className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300">
           <BsCloudDownload className="text-accent-original h-8 w-8 ml-3" />
           <p className="text-accent-original text-md tracking-wide">Download this model</p>
         </a>
       </div>
       <div className='mx-auto'>
 
-        <TwitterShareButton url={shareUrl} className="flex items-center space-x-3 hover:opacity-50 w-64">
+        <TwitterShareButton url={shareUrl} className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300">
           <TwitterIcon size={32} className="ml-3" />
           <p className="text-accent-original text-md tracking-wide">Share this model</p>
         </TwitterShareButton>

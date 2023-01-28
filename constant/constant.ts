@@ -1,26 +1,28 @@
 export type CityType = {
   name: string
+  ruby: string
   gltfPath: string
 }
 
 export const cities: Array<CityType> = [
-  { name: 'Sapporo', gltfPath: '/sapporo.glb' },
-  { name: 'Tokyo', gltfPath: '/tokyo.glb' },
-  { name: 'Nagoya', gltfPath: '/nagoya.glb' },
-  { name: 'Yokohama', gltfPath: '/yokohama.glb' },
-  { name: 'Osaka', gltfPath: '/osaka.glb' }
+  { name: 'Sapporo', gltfPath: '/sapporo.glb', ruby: '札幌' },
+  { name: 'Tokyo', gltfPath: '/tokyo.glb', ruby: '東京' },
+  { name: 'Nagoya', gltfPath: '/nagoya.glb', ruby: '名古屋' },
+  { name: 'Yokohama', gltfPath: '/yokohama.glb', ruby: '横浜' },
+  { name: 'Osaka', gltfPath: '/osaka.glb', ruby: '大阪' }
 ]
 
 export type SceneType = {
   name: string
+  ruby: string
   path: string
 }
 
 export const scenes: Array<SceneType> = [
-  { name: 'Living Room', path: 'living.hdr' },
-  { name: 'Studio', path: 'studio.hdr' },
-  { name: 'Lounge', path: 'lounge.hdr' },
-  { name: 'Snow Field', path: 'snow_field.hdr' }
+  { name: 'Living', path: 'living.hdr', ruby: 'リビング' },
+  { name: 'Studio', path: 'studio.hdr' , ruby: 'スタジオ'},
+  { name: 'Lounge', path: 'lounge.hdr' , ruby: 'ラウンジ'},
+  { name: 'Snow Field', path: 'snow_field.hdr', ruby: '屋外' }
 ]
 
 export const shareUrl = "http://github.com"
