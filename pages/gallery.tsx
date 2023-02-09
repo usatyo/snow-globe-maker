@@ -3,10 +3,10 @@ import { useState } from 'react'
 // import Canvas from '../component/Canvas'
 import Crystal from '../component/Crystal'
 import FullScreenButton from '../component/FullScreenButton'
+import GallaryDrawer from '../component/GallaryDrawer'
 import Header from '../component/Header'
 import EnvMapCanvas from '../component/canvas/EnvMapCanvas'
 import { backs, cities } from '../constant/constant'
-import GallaryDrawer from '../component/GallaryDrawer'
 
 export const Gallery = () => {
   const [city, setCity] = useState(cities[0].gltfPath)
