@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useMapEvents } from 'react-leaflet'
 
 export const MapController = (props: any) => {
-  const initialPosition = {lat: 35.4122, lng: 139.4130}
+  const initialPosition = { lat: 35.4122, lng: 139.413 }
   const initialZoom: number = 11
   const [position, setPosition] = useState(initialPosition)
   const [zoom, setZoom] = useState(initialZoom)
@@ -10,7 +10,7 @@ export const MapController = (props: any) => {
   const map = useMapEvents({
     dragend: () => {
       console.log(map.getCenter())
-      setPosition({lat:map.getCenter().lat, lng: map.getCenter().lng})
+      setPosition({ lat: map.getCenter().lat, lng: map.getCenter().lng })
     },
     zoomend: () => {
       console.log(map.getZoom())

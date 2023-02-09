@@ -23,4 +23,4 @@ export const backs: Array<BackType> = [
   { name: 'Snow Field', path: 'snow_field.hdr' }
 ]
 
-export const shareUrl = "http://github.com"
+export const shareUrl = 'http://github.com'
