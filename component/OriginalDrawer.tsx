@@ -7,14 +7,20 @@ type Props = {
 
 export const OriginalDrawer: FC<Props> = ({ isOpen }) => {
   const titles: string[] = [
-    "position"
+    "setting"
   ]
   const childrens: ReactNode[] = [
-    <p>aaa</p>
+    <SettingContent />
   ]
   return (
     <Drawer isOpen={isOpen} titles={titles} childrens={childrens} />
-  )
-}
+    )
+  }
 
-export default OriginalDrawer
+  const SettingContent = () => {
+    return (
+      <button>make</button>
+    )
+  }
+  
+  export default OriginalDrawer

@@ -12,9 +12,9 @@ const FullScreenButton: FC<FullScreenButtonProps> = ({ isFullScreen, onClick, cl
   return (
     <>
       {isFullScreen ? (
-        <BsChevronDoubleLeft color="white" size={30} onClick={onClick} className={className} />
+        <BsChevronDoubleLeft size={30} onClick={onClick} className={`${className} mix-blend-difference text-white`} />
       ) : (
-        <BsChevronDoubleRight color="white" size={30} onClick={onClick} className={className} />
+        <BsChevronDoubleRight size={30} onClick={onClick} className={`${className} mix-blend-difference text-white`} />
       )}
     </>
   )
