@@ -1,7 +1,7 @@
 import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
-import FullScreenButton from "../component/FullScreenButton";
 
+import FullScreenButton from "../component/FullScreenButton";
 import Header from "../component/Header";
 import OriginalDrawer from "../component/OriginalDrawer";
 

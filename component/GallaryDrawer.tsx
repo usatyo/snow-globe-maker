@@ -84,8 +84,7 @@ const OptionContent = (props: { path: string }) => {
         </a>
       </div>
       <div className='mx-auto'>
-
-        <TwitterShareButton url={shareUrl} className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300">
+        <TwitterShareButton url={shareUrl} title={"あなただけのスノードームを作りましょう！！\n#snow_city #PLATEAU\n\nhttps://pbs.twimg.com/media/Fob9DAfagAIBZ66?format=jpg&name=small\n\n"} className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300">
           <TwitterIcon size={32} className="ml-3" />
           <p className="text-accent-original text-md tracking-wide">Share this model</p>
         </TwitterShareButton>
