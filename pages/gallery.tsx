@@ -18,7 +18,7 @@ export const Gallery = () => {
       <Header className="" />
       {/* y方向スクロールに対応するため、コンテンツは固定値でflexを未使用 */}
       <div className="relative flex flex-col md:flex-row h-full md:h-[calc(100%_-_90px)]">
-        <div className={isDrawerOpen ? 'relative w-3/4 h-1/2 md:h-full' : 'relative w-full  md:w-full h-1/2 md:h-full'}>
+        <div className={isDrawerOpen ? 'relative md:w-3/4 h-1/2 md:h-full' : 'relative w-full  md:w-full h-1/2 md:h-full'}>
           <EnvMapCanvas path={city} scenePath={scene} />
           <FullScreenButton
             isFullScreen={!isDrawerOpen}
