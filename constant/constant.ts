@@ -25,4 +25,4 @@ export const scenes: Array<SceneType> = [
   { name: 'Snow Field', path: 'snow_field.hdr', ruby: '屋外' }
 ]
 
-export const shareUrl = "http://github.com"
+export const shareUrl = 'http://github.com'

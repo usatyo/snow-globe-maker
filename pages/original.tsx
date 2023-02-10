@@ -10,9 +10,9 @@ export const Original = () => {
 
   const Map = useMemo(
     () =>
-      dynamic(() => import("../component/SquareMap"), {
+      dynamic(() => import('../component/SquareMap'), {
         loading: () => <p>A map is loading</p>,
-        ssr: false,
+        ssr: false
       }),
     []
   )
@@ -20,8 +20,8 @@ export const Original = () => {
     <div className="h-screen bg-gradient-to-br from-base-dark to-black overflow-hidden">
       <Header className="" />
       {/* y方向スクロールに対応するため、コンテンツは固定値でflexを未使用 */}
-      <div className="relative flex flex-row h-[calc(100%_-_90px)]">
-        <div className={isDrawerOpen ? 'relative w-3/4' : 'relative w-full'}>
+      <div className="relative flex flex-row md:h-[calc(100%_-_90px)] h-1/2">
+        <div className={isDrawerOpen ? 'relative  md:w-3/4' : 'relative  md:w-full'}>
           <Map />
           <FullScreenButton
             isFullScreen={!isDrawerOpen}

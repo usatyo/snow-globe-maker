@@ -1,11 +1,10 @@
 import * as RadioGroup from '@radix-ui/react-radio-group'
 import { FC, ReactNode } from "react"
-import { TbCloudDownload } from 'react-icons/tb'
 import { BsCloudDownload } from 'react-icons/bs'
 import { TwitterIcon, TwitterShareButton } from 'react-share'
 import { scenes, cities, shareUrl } from "../constant/constant"
 import Audio from './Audio'
-import Drawer from "./Drawer"
+import Drawer from './Drawer'
 
 type Props = {
   isOpen: boolean
@@ -15,9 +14,11 @@ type Props = {
 }
 
 const Option = (props: { val: string; name: string; ruby: string; idx: number }) => {
+    // <div key={props.idx} className="mx-auto">
+    //   <div className=" flex flex-row items-center space-x-3 w-56">
   return (
-    <div key={props.idx} className="mx-auto">
-      <div className=" flex flex-row items-center space-x-3 w-56">
+    <div key={props.idx} className="flex flex-col items-end space-y-1 mx-auto ">
+      <div className=" flex flex-row  items-center space-x-3  pl-2 md:w-36 ml-2">
         <RadioGroup.Item
           value={props.val}
           id={props.name}
@@ -61,7 +62,7 @@ const SceneContent = (props: { onChange: (city: string) => void }) => {
         defaultChecked
         defaultValue={scenes[0].path}
         onValueChange={props.onChange}
-        className={"z-30 flex flex-col items-start space-y-5"}
+        className={'z-30 flex flex-col items-start space-y-5'}
       >
         {scenes.map((val, idx) => {
           return <Option val={val.path} name={val.name} ruby={val.ruby} idx={idx} key={idx} />
@@ -104,9 +105,7 @@ export const GallaryDrawer: FC<Props> = ({ isOpen, onSceneChange, onCityChange, 
     <SceneContent onChange={onSceneChange} />,
     <OptionContent path={cityPath} />
   ]
-  return (
-    <Drawer isOpen={isOpen} titles={titles} childrens={childrens} />
-  )
+  return <Drawer isOpen={isOpen} titles={titles} childrens={childrens} />
 }
 
 export default GallaryDrawer

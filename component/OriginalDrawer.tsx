@@ -1,5 +1,5 @@
-import { FC, ReactNode } from "react"
-import Drawer from "./Drawer"
+import { FC, ReactNode } from 'react'
+import Drawer from './Drawer'
 
 type Props = {
   isOpen: boolean
