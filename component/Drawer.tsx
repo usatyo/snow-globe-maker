@@ -13,11 +13,11 @@ export const Drawer: FC<Props> = ({ isOpen, titles, childrens }) => {
     <div className="relative z-20 h-full bg-base-light/10 flex flex-col py-10 px-10 space-y-8 bg-blur-md md:w-[30%] text-center items-center backdrop-blur-sm overflow-y-auto">
       <Tabs.Root defaultValue={'0'}>
         <Tabs.List>
-          {titles.map((title, idx) => (
-            <Tabs.Trigger value={idx.toString()} key={idx}>
+          {titles.map((title, idx) =>
+            <Tabs.Trigger value={idx.toString()} key={idx} className={'mx-5 mb-10 text-accent-original font-italianno tracking-wide text-[2.5rem] opacity-30 data-[state=active]:opacity-100 duration-300'}>
               {title}
             </Tabs.Trigger>
-          ))}
+          )}
         </Tabs.List>
         {childrens.map((children, idx) => (
           <Tabs.Content value={idx.toString()} key={idx}>

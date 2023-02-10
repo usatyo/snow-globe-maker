@@ -6,11 +6,11 @@ import FullScreenButton from '../component/FullScreenButton'
 import GallaryDrawer from '../component/GallaryDrawer'
 import Header from '../component/Header'
 import EnvMapCanvas from '../component/canvas/EnvMapCanvas'
-import { backs, cities } from '../constant/constant'
+import { scenes, cities } from '../constant/constant'
 
 export const Gallery = () => {
   const [city, setCity] = useState(cities[0].gltfPath)
-  const [back, setBack] = useState(backs[0].path)
+  const [scene, setScene] = useState(scenes[0].path)
   const [isDrawerOpen, setIsDrawerOpen] = useState(true)
 
   return (
@@ -18,8 +18,8 @@ export const Gallery = () => {
       <Header className="" />
       {/* y方向スクロールに対応するため、コンテンツは固定値でflexを未使用 */}
       <div className="relative flex flex-col md:flex-row h-full md:h-[calc(100%_-_90px)]">
-        <div className={isDrawerOpen ? 'relative md:w-3/4 h-1/2 md:h-full' : 'relative md:w-full h-1/2 md:h-full'}>
-          <EnvMapCanvas path={city} backPath={back} />
+        <div className={isDrawerOpen ? 'relative md:w-3/4 h-1/2 md:h-full' : 'relative w-full  md:w-full h-1/2 md:h-full'}>
+          <EnvMapCanvas path={city} scenePath={scene} />
           <FullScreenButton
             isFullScreen={!isDrawerOpen}
             onClick={() => {
@@ -29,7 +29,7 @@ export const Gallery = () => {
           />
         </div>
         <Crystal />
-        <GallaryDrawer isOpen={isDrawerOpen} onCityChange={setCity} onBackChange={setBack} cityPath="" />
+        <GallaryDrawer isOpen={isDrawerOpen} onCityChange={setCity} onSceneChange={setScene} cityPath="" />
       </div>
     </div>
   )
