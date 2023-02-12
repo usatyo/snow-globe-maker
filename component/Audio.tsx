@@ -20,7 +20,7 @@ const Audio = (props: { className?: string }) => {
         className={`flex items-center space-x-3 ${props.className}`}
       >
         <BsMusicNoteBeamed className="text-accent-original h-8 w-8 ml-3" />
-        <p className="text-accent-original text-md tracking-wide">Sound:{" "}
+        <p className="text-accent-original text-md tracking-wide">Sound{" "}
           <span className="text-xl">
             {isPlaying ? "ON" : "OFF"}
           </span>

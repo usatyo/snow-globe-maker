@@ -14,11 +14,9 @@ type Props = {
 }
 
 const Option = (props: { val: string; name: string; ruby: string; idx: number }) => {
-    // <div key={props.idx} className="mx-auto">
-    //   <div className=" flex flex-row items-center space-x-3 w-56">
   return (
-    <div key={props.idx} className="flex flex-col items-end space-y-1 mx-auto ">
-      <div className=" flex flex-row  items-center space-x-3  pl-2 md:w-36 ml-2">
+    <div key={props.idx} className="flex flex-col items-end space-y-1 ml-6">
+      <div className="flex flex-row items-center space-x-3 md:w-56">
         <RadioGroup.Item
           value={props.val}
           id={props.name}
@@ -27,12 +25,12 @@ const Option = (props: { val: string; name: string; ruby: string; idx: number })
           <RadioGroup.Indicator className="flex justify-center items-center h-full w-full after:h-full after:w-full after:bg-white after:rounded-full" />
         </RadioGroup.Item>
         <label
-          className="text-[1.7rem] font-italianno text-accent-original font-mono hover:opacity-50 tracking-wider text-center transition-all duration-300"
+          className="text-[1.7rem] font-italianno text-accent-original font-mono hover:opacity-50 tracking-wider text-center transition-all duration-300 whitespace-nowrap"
           htmlFor={props.name}
         >
           {props.name}
         </label>
-        <p className='text-[0.7rem] text-accent-original tracking-wider'>{props.ruby}</p>
+        <p className='text-[0.7rem] text-accent-original tracking-wider whitespace-nowrap'>{props.ruby}</p>
       </div>
     </div>
   )
@@ -74,22 +72,16 @@ const SceneContent = (props: { onChange: (city: string) => void }) => {
 
 const OptionContent = (props: { path: string }) => {
   return (
-    <div className='flex flex-col space-y-10 items-start'>
-      <div className='mx-auto'>
-        <Audio className=' hover:opacity-70 w-64 transition-all duration-300' />
-      </div>
-      <div className='mx-auto'>
-        <a href={props.path} download={props.path?.slice(1)} className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300">
-          <BsCloudDownload className="text-accent-original h-8 w-8 ml-3" />
-          <p className="text-accent-original text-md tracking-wide">Download this model</p>
-        </a>
-      </div>
-      <div className='mx-auto'>
-        <TwitterShareButton url={shareUrl} title={"あなただけのスノードームを作りましょう！！\n#snow_city #PLATEAU\n\nhttps://pbs.twimg.com/media/Fob9DAfagAIBZ66?format=jpg&name=small\n\n"} className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300">
-          <TwitterIcon size={32} className="ml-3" />
-          <p className="text-accent-original text-md tracking-wide">Share this model</p>
-        </TwitterShareButton>
-      </div>
+    <div className='flex flex-col space-y-10 items-start mx-auto'>
+      <Audio className=' hover:opacity-70 w-64 transition-all duration-300' />
+      <a href={props.path} download={props.path?.slice(1)} className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300">
+        <BsCloudDownload className="text-accent-original h-8 w-8 ml-3" />
+        <p className="text-accent-original text-md tracking-wide">Download this model</p>
+      </a>
+      <TwitterShareButton url={shareUrl} title={"あなただけのスノードームを作りましょう！！\n#snow_city #PLATEAU\n\nhttps://pbs.twimg.com/media/Fob9DAfagAIBZ66?format=jpg&name=small\n\n"} className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300">
+        <TwitterIcon size={32} className="ml-3" />
+        <p className="text-accent-original text-md tracking-wide">Share this model</p>
+      </TwitterShareButton>
     </div>
   )
 }
