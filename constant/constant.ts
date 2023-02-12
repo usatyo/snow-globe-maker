@@ -12,6 +12,8 @@ export const cities: Array<CityType> = [
   { name: 'Osaka', gltfPath: '/osaka.glb', ruby: '大阪' }
 ]
 
+export const emptyModel: string = '/empty.glb'
+
 export type SceneType = {
   name: string
   ruby: string
