@@ -1,12 +1,14 @@
-export const getPaths = (lat: number, lng: number, zoomLevel: number): string[] => {
-  const radius: number = zoomToRadius(zoomLevel)
+export const getPaths = (lat: number, lng: number, scale: number): string[] => {
+  const radius: number = scaleToRadius(scale)
   const alt: number = getAlt(lat, lng)
   
+  // fetch
+
   const paths: string[] = []
   return paths
 }
 
-const zoomToRadius = (zoomLevel: number): number => {
+const scaleToRadius = (scale: number): number => {
   return 0
 }
 
