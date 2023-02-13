@@ -1,6 +1,6 @@
 import { Dispatch, FC, ReactNode, SetStateAction } from 'react'
 import { PositionType } from '../constant/constant'
-import { getPaths } from '../util/util'
+import { getPaths, scaleToRadius } from '../util/util'
 import Drawer from './Drawer'
 
 type Props = {
@@ -33,6 +33,8 @@ const MapContent = (props: { setIsMap: Dispatch<SetStateAction<boolean>>, setPat
       <p>lat:{props.pos.lat}</p>
       <p>lng:{props.pos.lng}</p>
       <p>scale:{props.pos.scale}</p>
+      <p>radius:{scaleToRadius(props.pos.scale)}</p>
+      <p>場所によってはテクスチャがつかない場合があります</p>
       <button onClick={handleClick}>make</button>
     </div>
   )
