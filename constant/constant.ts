@@ -1,3 +1,17 @@
+export type PositionType = {
+  lat: number
+  lng: number
+  alt: number
+  scale: number
+}
+
+export const origin: PositionType = {
+  lat: 43.0620569,
+  lng: 141.351811,
+  alt: 8.90593097,
+  scale: 5
+}
+
 export type CityType = {
   name: string
   ruby: string
@@ -22,8 +36,8 @@ export type SceneType = {
 
 export const scenes: Array<SceneType> = [
   { name: 'Living', path: 'living.hdr', ruby: 'リビング' },
-  { name: 'Studio', path: 'studio.hdr' , ruby: 'スタジオ'},
-  { name: 'Lounge', path: 'lounge.hdr' , ruby: 'ラウンジ'},
+  { name: 'Studio', path: 'studio.hdr', ruby: 'スタジオ' },
+  { name: 'Lounge', path: 'lounge.hdr', ruby: 'ラウンジ' },
   { name: 'Snow Field', path: 'snow_field.hdr', ruby: '屋外' }
 ]
 

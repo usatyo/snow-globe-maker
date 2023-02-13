@@ -5,8 +5,9 @@ import { Suspense, useState, useEffect, useRef } from 'react'
 import SnowGlobe from './SnowGlobe'
 import Snows from './Snows'
 import TableModel from './TableModel'
+import { PositionType } from '../../constant/constant'
 
-export default function EnvMapCanvas(props: { paths: string[]; scenePath: string }) {
+export default function EnvMapCanvas(props: { paths: string[], scenePath: string, pos:PositionType[] }) {
   const [devicePixelRatio, setDevicePixelRatio] = useState(1)
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -44,7 +45,7 @@ export default function EnvMapCanvas(props: { paths: string[]; scenePath: string
             attenuation={20}
             penumbra={0.2}
           />
-          <SnowGlobe paths={props.paths} />
+          <SnowGlobe paths={props.paths} pos={props.pos} />
           <Snows />
           <TableModel object={null} position={[0, -8, 0]} scale={[4, 1, 4]} />
         </Suspense>
