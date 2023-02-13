@@ -1,4 +1,6 @@
 import { Dispatch, FC, ReactNode, SetStateAction } from 'react'
+import { PositionType } from '../constant/constant'
+import { getPaths } from '../util/util'
 import Drawer from './Drawer'
 
 type Props = {
@@ -6,12 +8,13 @@ type Props = {
   isMap: boolean
   setIsMap: Dispatch<SetStateAction<boolean>>
   setPaths: Dispatch<SetStateAction<string[]>>
+  pos: PositionType
 }
 
-export const OriginalDrawer: FC<Props> = ({ isOpen, isMap, setIsMap, setPaths }) => {
+export const OriginalDrawer: FC<Props> = ({ isOpen, isMap, setIsMap, setPaths, pos }) => {
   const titles: string[] = isMap ? ["Map"] : ["Preview"]
   const childrens: ReactNode[] = isMap ? [
-    <MapContent setIsMap={setIsMap} />
+    <MapContent setIsMap={setIsMap} setPaths={setPaths} pos={pos} />
   ] : [
     <PreviewContent setIsMap={setIsMap} />
   ]
@@ -20,14 +23,18 @@ export const OriginalDrawer: FC<Props> = ({ isOpen, isMap, setIsMap, setPaths })
   )
 }
 
-const MapContent = (props: { setIsMap: Dispatch<SetStateAction<boolean>> }) => {
-  const handleClick = () => {
+const MapContent = (props: { setIsMap: Dispatch<SetStateAction<boolean>>, setPaths: Dispatch<SetStateAction<string[]>>, pos: PositionType }) => {
+  const handleClick = async () => {
     props.setIsMap((prev) => !prev)
-
-    // make original model
+    props.setPaths(await getPaths(props.pos.lat, props.pos.lng, props.pos.scale))
   }
   return (
-    <button onClick={handleClick}>make</button>
+    <div>
+      <p>lat:{props.pos.lat}</p>
+      <p>lng:{props.pos.lng}</p>
+      <p>scale:{props.pos.scale}</p>
+      <button onClick={handleClick}>make</button>
+    </div>
   )
 }
 

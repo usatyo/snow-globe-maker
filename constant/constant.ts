@@ -9,7 +9,7 @@ export const origin: PositionType = {
   lat: 43.0620569,
   lng: 141.351811,
   alt: 8.90593097,
-  scale: 5
+  scale: 13
 }
 
 export type CityType = {

@@ -5,12 +5,13 @@ import FullScreenButton from "../component/FullScreenButton";
 import Header from "../component/Header";
 import OriginalDrawer from "../component/OriginalDrawer";
 import EnvMapCanvas from "../component/canvas/EnvMapCanvas";
-import { emptyModel, scenes } from "../constant/constant";
+import { emptyModel, origin, PositionType, scenes } from "../constant/constant";
 
 export const Original = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(true)
   const [isMap, setIsMap] = useState<boolean>(true)
-  const [paths, setPaths] = useState<string[]>(['http://localhost:1323/public/model/sapporo_1k/01100-bldg-343490.glb', 'http://localhost:1323/public/model/sapporo_1k/01100-bldg-343753.glb'])
+  const [paths, setPaths] = useState<string[]>([])
+  const [pos, setPos] = useState<PositionType>(origin)
 
   const Map = useMemo(
     () =>
@@ -28,7 +29,7 @@ export const Original = () => {
         <div className={isDrawerOpen ? 'relative  md:w-3/4' : 'relative  md:w-full'}>
           {isMap ?
             <div>
-              <Map />
+              <Map pos={pos} setPos={setPos} />
               <div className="absolute top-0 left-0 right-0 bottom-0 h-1/2 aspect-square m-auto rounded-full bg-black z-10 opacity-30 pointer-events-none"></div>
             </div>
             :
@@ -42,7 +43,7 @@ export const Original = () => {
             className="absolute top-5 right-5"
           />
         </div>
-        <OriginalDrawer isOpen={isDrawerOpen} isMap={isMap} setIsMap={setIsMap} setPaths={setPaths} />
+        <OriginalDrawer isOpen={isDrawerOpen} isMap={isMap} setIsMap={setIsMap} setPaths={setPaths} pos={pos} />
       </div>
     </div>
   )
