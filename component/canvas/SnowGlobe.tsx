@@ -1,9 +1,8 @@
 import { OrbitControls, Bounds, PerspectiveCamera } from '@react-three/drei'
-import { origin, PositionType } from '../../constant/constant'
 
 import Model from './Model'
 
-const SnowGlobe = (props: { paths: string[], pos: PositionType[] }) => {
+const SnowGlobe = (props: { paths: string[] }) => {
   const k = 25000
   return (
     <>
@@ -23,8 +22,8 @@ const SnowGlobe = (props: { paths: string[], pos: PositionType[] }) => {
               return (
                 <Model
                   rotation-y={Math.PI}
-                  position={[-(props.pos[idx].lng - origin.lng) * k, -(props.pos[idx].alt - origin.alt) * 0.5, (props.pos[idx].lat - origin.lat) * k]}
-                  scale={props.pos[idx].scale}
+                  position={[-0.3, 0, 0]}
+                  scale={5}
                   object={null}
                   path={path}
                   key={idx}

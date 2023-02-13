@@ -1,16 +1,16 @@
 import dynamic from "next/dynamic";
-import { useMemo, useState } from "react";
+import { createContext, useMemo, useState } from "react";
 
 import FullScreenButton from "../component/FullScreenButton";
 import Header from "../component/Header";
 import OriginalDrawer from "../component/OriginalDrawer";
 import EnvMapCanvas from "../component/canvas/EnvMapCanvas";
-import { emptyModel, origin, scenes } from "../constant/constant";
+import { emptyModel, scenes } from "../constant/constant";
 
 export const Original = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(true)
   const [isMap, setIsMap] = useState<boolean>(true)
-  const [paths, setPaths] = useState<string[]>(['01100-bldg-303345.glb', '01100-bldg-304557.glb', '01100-bldg-304576.glb', '01100-bldg-304616.glb'])
+  const [paths, setPaths] = useState<string[]>(['http://localhost:1323/public/model/sapporo_1k/01100-bldg-343490.glb', 'http://localhost:1323/public/model/sapporo_1k/01100-bldg-343753.glb'])
 
   const Map = useMemo(
     () =>
@@ -32,7 +32,7 @@ export const Original = () => {
               <div className="absolute top-0 left-0 right-0 bottom-0 h-1/2 aspect-square m-auto rounded-full bg-black z-10 opacity-30 pointer-events-none"></div>
             </div>
             :
-            <EnvMapCanvas paths={[emptyModel, ...paths]} scenePath={scenes[0].path} pos={[origin, { lat: 43.071173, lng: 141.348529, alt: 18.777, scale: 0.3 }, { lat: 43.071173, lng: 141.348529, alt: 18.777, scale: 0.3 }, { lat: 43.071173, lng: 141.348529, alt: 18.777, scale: 0.3 }, { lat: 43.071173, lng: 141.348529, alt: 18.777, scale: 0.3 }]} />
+            <EnvMapCanvas paths={[emptyModel, ...paths]} scenePath={scenes[0].path} />
           }
           <FullScreenButton
             isFullScreen={!isDrawerOpen}
