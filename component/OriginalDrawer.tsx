@@ -24,9 +24,9 @@ export const OriginalDrawer: FC<Props> = ({ isOpen, isMap, setIsMap, setPaths, p
 }
 
 const MapContent = (props: { setIsMap: Dispatch<SetStateAction<boolean>>, setPaths: Dispatch<SetStateAction<string[]>>, pos: PositionType }) => {
-  const handleClick = () => {
+  const handleClick = async () => {
     props.setIsMap((prev) => !prev)
-    props.setPaths(getPaths(props.pos.lat, props.pos.lng, props.pos.scale))
+    props.setPaths(await getPaths(props.pos.lat, props.pos.lng, props.pos.scale))
   }
   return (
     <div>

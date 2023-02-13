@@ -10,7 +10,7 @@ import { emptyModel, origin, PositionType, scenes } from "../constant/constant";
 export const Original = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(true)
   const [isMap, setIsMap] = useState<boolean>(true)
-  const [paths, setPaths] = useState<string[]>(['http://localhost:1323/public/model/sapporo_1k/01100-bldg-343490.glb', 'http://localhost:1323/public/model/sapporo_1k/01100-bldg-343753.glb'])
+  const [paths, setPaths] = useState<string[]>([])
   const [pos, setPos] = useState<PositionType>(origin)
 
   const Map = useMemo(
