@@ -1,26 +1,43 @@
-import { FC, ReactNode } from 'react'
+import { Dispatch, FC, ReactNode, SetStateAction } from 'react'
 import Drawer from './Drawer'
 
 type Props = {
   isOpen: boolean
+  isMap: boolean
+  setIsMap: Dispatch<SetStateAction<boolean>>
+  setPaths: Dispatch<SetStateAction<string[]>>
 }
 
-export const OriginalDrawer: FC<Props> = ({ isOpen }) => {
-  const titles: string[] = [
-    "setting"
-  ]
-  const childrens: ReactNode[] = [
-    <SettingContent />
+export const OriginalDrawer: FC<Props> = ({ isOpen, isMap, setIsMap, setPaths }) => {
+  const titles: string[] = isMap ? ["Map"] : ["Preview"]
+  const childrens: ReactNode[] = isMap ? [
+    <MapContent setIsMap={setIsMap} />
+  ] : [
+    <PreviewContent setIsMap={setIsMap} />
   ]
   return (
     <Drawer isOpen={isOpen} titles={titles} childrens={childrens} />
-    )
-  }
+  )
+}
 
-  const SettingContent = () => {
-    return (
-      <button>make</button>
-    )
+const MapContent = (props: { setIsMap: Dispatch<SetStateAction<boolean>> }) => {
+  const handleClick = () => {
+    props.setIsMap((prev) => !prev)
+
+    // make original model
   }
-  
-  export default OriginalDrawer
+  return (
+    <button onClick={handleClick}>make</button>
+  )
+}
+
+const PreviewContent = (props: { setIsMap: Dispatch<SetStateAction<boolean>> }) => {
+  const handleClick = () => {
+    props.setIsMap((prev) => !prev)
+  }
+  return (
+    <button onClick={handleClick}>return to map</button>
+  )
+}
+
+export default OriginalDrawer
