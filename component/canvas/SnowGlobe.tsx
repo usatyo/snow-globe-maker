@@ -10,7 +10,7 @@ const SnowGlobe = (props: { paths: string[] }) => {
       <OrbitControls
         autoRotate
         maxPolarAngle={Math.PI / 2}
-        maxDistance={500} // 100に戻す
+        maxDistance={10000} // 100に戻す
         minDistance={20}
         autoRotateSpeed={0.4}
         enablePan={false}
