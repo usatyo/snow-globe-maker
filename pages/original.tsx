@@ -9,8 +9,8 @@ import Snows from '../component/canvas//Snows'
 import TableModel from '../component/canvas//TableModel'
 import CuttedCities from '../component/canvas/CuttedCities'
 import EnvMapCanvas from '../component/canvas/EnvMapCanvas'
-import { emptyModel, origin, PositionType, scenes } from '../constant/constant'
 import SnowGlobe from '../component/canvas/SnowGlobe'
+import { emptyModel, origin, PositionType, scenes } from '../constant/constant'
 
 export const Original = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(true)

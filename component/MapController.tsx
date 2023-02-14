@@ -7,10 +7,13 @@ export const MapController = (props: { pos: PositionType; setPos: (value: Positi
       const newPos: PositionType = { ...props.pos }
       newPos.lat = map.getCenter().lat
       newPos.lng = map.getCenter().lng
+      newPos.scale = map.getZoom()
       props.setPos(newPos)
     },
     zoomend: () => {
       const newPos: PositionType = { ...props.pos }
+      newPos.lat = map.getCenter().lat
+      newPos.lng = map.getCenter().lng
       newPos.scale = map.getZoom()
       props.setPos(newPos)
     }
