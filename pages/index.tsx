@@ -16,7 +16,7 @@ export default function Home() {
           <p className="text-accent-original text-[0.7rem] md:text-[1.5rem]  tracking-[3px] font-noto font-extralight">
             ─　あなたの街にも、初雪を　─
           </p>
-          <div className='flex flex-col space-y-6'>
+          <div className="flex flex-col space-y-6">
             <button
               id="button"
               onClick={() => {

@@ -1,12 +1,13 @@
 import { Canvas } from '@react-three/fiber'
-import { Environment, Loader, SpotLight } from '@react-three/drei'
-import { Suspense, useState, useEffect, useRef } from 'react'
+import { Environment, Loader } from '@react-three/drei'
+import { Suspense, useState, useEffect, useRef, ReactNode, FC } from 'react'
 
-import SnowGlobe from './SnowGlobe'
-import Snows from './Snows'
-import TableModel from './TableModel'
+type EnvMapCanvasProps = {
+  scenePath: string
+  children?: ReactNode
+}
 
-export default function EnvMapCanvas(props: { paths: string[], scenePath: string }) {
+const EnvMapCanvas: FC<EnvMapCanvasProps> = (props) => {
   const [devicePixelRatio, setDevicePixelRatio] = useState(1)
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -32,24 +33,11 @@ export default function EnvMapCanvas(props: { paths: string[], scenePath: string
         ref={canvasRef}
       >
         <Environment files={props.scenePath} background />
-        <Suspense fallback={null}>
-          <SpotLight
-            radiusTop={0}
-            radiusBottom={0}
-            position={[0, 20, 0]}
-            intensity={10}
-            color={0xffffff}
-            distance={100}
-            angle={0.6}
-            attenuation={20}
-            penumbra={0.2}
-          />
-          <SnowGlobe paths={props.paths} />
-          <Snows />
-          <TableModel object={null} position={[0, -8, 0]} scale={[4, 1, 4]} />
-        </Suspense>
+        <Suspense fallback={null}>{props.children}</Suspense>
       </Canvas>
       <Loader />
     </>
   )
 }
+
+export default EnvMapCanvas

@@ -20,17 +20,9 @@ const SnowGlobe = (props: { paths: string[] }) => {
           <group position={[0.2, -1, 0]}>
             {props.paths.map((path, idx) => {
               return (
-                <Model
-                  rotation-y={Math.PI}
-                  position={[-0.3, 0, 0]}
-                  scale={5}
-                  object={null}
-                  path={path}
-                  key={idx}
-                />
+                <Model rotation-y={Math.PI} position={[-0.3, 0, 0]} scale={5} object={null} path={path} key={idx} />
               )
-            }
-            )}
+            })}
           </group>
         </Bounds>
       </group>

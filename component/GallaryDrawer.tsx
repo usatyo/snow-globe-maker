@@ -1,8 +1,8 @@
 import * as RadioGroup from '@radix-ui/react-radio-group'
-import { FC, ReactNode } from "react"
+import { FC, ReactNode } from 'react'
 import { BsCloudDownload } from 'react-icons/bs'
 import { TwitterIcon, TwitterShareButton } from 'react-share'
-import { scenes, cities, shareUrl } from "../constant/constant"
+import { scenes, cities, shareUrl } from '../constant/constant'
 import Audio from './Audio'
 import Drawer from './Drawer'
 
@@ -30,7 +30,7 @@ const Option = (props: { val: string; name: string; ruby: string; idx: number })
         >
           {props.name}
         </label>
-        <p className='text-[0.7rem] text-accent-original tracking-wider whitespace-nowrap'>{props.ruby}</p>
+        <p className="text-[0.7rem] text-accent-original tracking-wider whitespace-nowrap">{props.ruby}</p>
       </div>
     </div>
   )
@@ -72,13 +72,23 @@ const SceneContent = (props: { onChange: (city: string) => void }) => {
 
 const OptionContent = (props: { path: string }) => {
   return (
-    <div className='flex flex-col space-y-10 items-start mx-auto'>
-      <Audio className=' hover:opacity-70 w-64 transition-all duration-300' />
-      <a href={props.path} download={props.path?.slice(1)} className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300">
+    <div className="flex flex-col space-y-10 items-start mx-auto">
+      <Audio className=" hover:opacity-70 w-64 transition-all duration-300" />
+      <a
+        href={props.path}
+        download={props.path?.slice(1)}
+        className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300"
+      >
         <BsCloudDownload className="text-accent-original h-8 w-8 ml-3" />
         <p className="text-accent-original text-md tracking-wide">Download this model</p>
       </a>
-      <TwitterShareButton url={shareUrl} title={"あなただけのスノードームを作りましょう！！\n#snow_city #PLATEAU\n\nhttps://pbs.twimg.com/media/Fob9DAfagAIBZ66?format=jpg&name=small\n\n"} className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300">
+      <TwitterShareButton
+        url={shareUrl}
+        title={
+          'あなただけのスノードームを作りましょう！！\n#snow_city #PLATEAU\n\nhttps://pbs.twimg.com/media/Fob9DAfagAIBZ66?format=jpg&name=small\n\n'
+        }
+        className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300"
+      >
         <TwitterIcon size={32} className="ml-3" />
         <p className="text-accent-original text-md tracking-wide">Share this model</p>
       </TwitterShareButton>
@@ -87,11 +97,7 @@ const OptionContent = (props: { path: string }) => {
 }
 
 export const GallaryDrawer: FC<Props> = ({ isOpen, onSceneChange, onCityChange, cityPath }) => {
-  const titles: string[] = [
-    "City",
-    "Scene",
-    "Option"
-  ]
+  const titles: string[] = ['City', 'Scene', 'Option']
   const childrens: ReactNode[] = [
     <CityContent onChange={onCityChange} />,
     <SceneContent onChange={onSceneChange} />,

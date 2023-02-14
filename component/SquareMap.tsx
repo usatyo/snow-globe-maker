@@ -3,7 +3,7 @@ import 'leaflet/dist/leaflet.css'
 import MapController from './MapController'
 import { origin, PositionType } from '../constant/constant'
 
-export const SquareMap = (props: {pos:PositionType, setPos: (value: PositionType)=>void}) => {
+export const SquareMap = (props: { pos: PositionType; setPos: (value: PositionType) => void }) => {
   return (
     <MapContainer
       center={[origin.lat, origin.lng]}

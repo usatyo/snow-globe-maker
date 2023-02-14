@@ -1,17 +1,16 @@
 import { useMapEvents } from 'react-leaflet'
 import { PositionType } from '../constant/constant'
 
-export const MapController = (props: { pos: PositionType, setPos: (value: PositionType) => void }) => {
-
+export const MapController = (props: { pos: PositionType; setPos: (value: PositionType) => void }) => {
   const map = useMapEvents({
     dragend: () => {
-      const newPos: PositionType = {...props.pos}
+      const newPos: PositionType = { ...props.pos }
       newPos.lat = map.getCenter().lat
       newPos.lng = map.getCenter().lng
       props.setPos(newPos)
     },
     zoomend: () => {
-      const newPos: PositionType = {...props.pos}
+      const newPos: PositionType = { ...props.pos }
       newPos.scale = map.getZoom()
       props.setPos(newPos)
     }

@@ -1,10 +1,13 @@
+import { SpotLight } from '@react-three/drei'
 import { useState } from 'react'
 
-// import Canvas from '../component/Canvas'
 import Crystal from '../component/Crystal'
 import FullScreenButton from '../component/FullScreenButton'
 import GallaryDrawer from '../component/GallaryDrawer'
 import Header from '../component/Header'
+import SnowGlobe from '../component/canvas//SnowGlobe'
+import Snows from '../component/canvas//Snows'
+import TableModel from '../component/canvas//TableModel'
 import EnvMapCanvas from '../component/canvas/EnvMapCanvas'
 import { scenes, cities } from '../constant/constant'
 
@@ -18,8 +21,25 @@ export const Gallery = () => {
       <Header className="" />
       {/* y方向スクロールに対応するため、コンテンツは固定値でflexを未使用 */}
       <div className="relative flex flex-col md:flex-row h-full md:h-[calc(100%_-_90px)]">
-        <div className={isDrawerOpen ? 'relative md:w-3/4 h-1/2 md:h-full' : 'relative w-full  md:w-full h-1/2 md:h-full'}>
-          <EnvMapCanvas paths={[city]} scenePath={scene} />
+        <div
+          className={isDrawerOpen ? 'relative md:w-3/4 h-1/2 md:h-full' : 'relative w-full  md:w-full h-1/2 md:h-full'}
+        >
+          <EnvMapCanvas scenePath={scene}>
+            <SpotLight
+              radiusTop={0}
+              radiusBottom={0}
+              position={[0, 20, 0]}
+              intensity={10}
+              color={0xffffff}
+              distance={100}
+              angle={0.6}
+              attenuation={20}
+              penumbra={0.2}
+            />
+            <SnowGlobe paths={[city]} />
+            <Snows />
+            <TableModel object={null} position={[0, -8, 0]} scale={[4, 1, 4]} />
+          </EnvMapCanvas>
           <FullScreenButton
             isFullScreen={!isDrawerOpen}
             onClick={() => {
