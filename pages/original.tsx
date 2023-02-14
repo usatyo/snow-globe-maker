@@ -10,6 +10,7 @@ import TableModel from '../component/canvas//TableModel'
 import CuttedCities from '../component/canvas/CuttedCities'
 import EnvMapCanvas from '../component/canvas/EnvMapCanvas'
 import { emptyModel, origin, PositionType, scenes } from '../constant/constant'
+import SnowGlobe from '../component/canvas/SnowGlobe'
 
 export const Original = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(true)
@@ -49,7 +50,8 @@ export const Original = () => {
                 attenuation={20}
                 penumbra={0.2}
               />
-              <CuttedCities paths={[emptyModel, ...paths]} />
+              <SnowGlobe path={emptyModel} />
+              <CuttedCities paths={[...paths]} />
               <Snows />
               <TableModel object={null} position={[0, -8, 0]} scale={[4, 1, 4]} />
             </EnvMapCanvas>

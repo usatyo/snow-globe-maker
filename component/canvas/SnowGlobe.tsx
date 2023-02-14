@@ -1,8 +1,13 @@
 import { OrbitControls, Bounds, PerspectiveCamera } from '@react-three/drei'
+import { FC } from 'react'
 
 import Model from './Model'
 
-const SnowGlobe = (props: { path: string }) => {
+type SnowGlobeProps = {
+  path: string
+}
+
+const SnowGlobe: FC<SnowGlobeProps> = (props) => {
   return (
     <>
       <PerspectiveCamera makeDefault position={[30, 30, 30]} />
