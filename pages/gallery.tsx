@@ -36,9 +36,9 @@ export const Gallery = () => {
               attenuation={20}
               penumbra={0.2}
             />
-            <SnowGlobe paths={[city]} />
+            <SnowGlobe path={city} />
             <Snows />
-            <TableModel object={null} position={[0, -8, 0]} scale={[4, 1, 4]} />
+            <TableModel object={null} position={[0, -8, 0]} scale={[3, 1, 3]} />
           </EnvMapCanvas>
           <FullScreenButton
             isFullScreen={!isDrawerOpen}

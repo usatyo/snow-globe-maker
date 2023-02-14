@@ -5,9 +5,9 @@ import { useMemo, useState } from 'react'
 import FullScreenButton from '../component/FullScreenButton'
 import Header from '../component/Header'
 import OriginalDrawer from '../component/OriginalDrawer'
-import SnowGlobe from '../component/canvas//SnowGlobe'
 import Snows from '../component/canvas//Snows'
 import TableModel from '../component/canvas//TableModel'
+import CuttedCities from '../component/canvas/CuttedCities'
 import EnvMapCanvas from '../component/canvas/EnvMapCanvas'
 import { emptyModel, origin, PositionType, scenes } from '../constant/constant'
 
@@ -49,7 +49,7 @@ export const Original = () => {
                 attenuation={20}
                 penumbra={0.2}
               />
-              <SnowGlobe paths={[emptyModel, ...paths]} />
+              <CuttedCities paths={[emptyModel, ...paths]} />
               <Snows />
               <TableModel object={null} position={[0, -8, 0]} scale={[4, 1, 4]} />
             </EnvMapCanvas>
