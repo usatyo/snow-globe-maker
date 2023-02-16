@@ -1,12 +1,14 @@
 import { Bounds } from '@react-three/drei'
 import { origin, PositionType } from '../../constant/constant'
-import { scaleToRadius } from '../../util/util'
+import { scaleToRadius, LocationCoordinates } from '../../util/util'
 
 import Model from './Model'
 
 const CuttedCities = (props: { paths: string[], pos: PositionType}) => {
-  const lngOffset = 650000 / scaleToRadius(props.pos.scale)
-  const latOffset = 890000 / scaleToRadius(props.pos.scale)
+  const originLocCor = new LocationCoordinates(origin.lat, origin.lng, props.pos.alt)
+  const posLocCor = new LocationCoordinates(props.pos.lat, props.pos.lng, props.pos.alt).toVec3Array(originLocCor)
+  const scaleMultiplyer = 8 / scaleToRadius(props.pos.scale)
+
   return (
     <>
       <group>
@@ -16,8 +18,8 @@ const CuttedCities = (props: { paths: string[], pos: PositionType}) => {
               return (
                 <Model 
                   rotation-y={Math.PI}
-                  position={[-(props.pos.lng - origin.lng) * lngOffset, -3, (props.pos.lat - origin.lat) * latOffset]}
-                  scale={8 / scaleToRadius(props.pos.scale)}
+                  position={[-posLocCor[0] * scaleMultiplyer, -3, -posLocCor[2] * scaleMultiplyer]}
+                  scale={scaleMultiplyer}
                   object={null}
                   path={path}
                   key={idx}
