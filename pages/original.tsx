@@ -1,6 +1,6 @@
 import { SpotLight } from '@react-three/drei'
 import dynamic from 'next/dynamic'
-import { useMemo, useState } from 'react'
+import { useMemo, useRef, useState } from 'react'
 
 import FullScreenButton from '../component/FullScreenButton'
 import Header from '../component/Header'
@@ -11,8 +11,10 @@ import CuttedCities from '../component/canvas/CuttedCities'
 import EnvMapCanvas from '../component/canvas/EnvMapCanvas'
 import SnowGlobe from '../component/canvas/SnowGlobe'
 import { emptyModel, origin, PositionType, scenes } from '../constant/constant'
+import { tooSmall } from '../util/util'
 
 export const Original = () => {
+  const circleRef = useRef<HTMLDivElement | null>(null)
   const [isDrawerOpen, setIsDrawerOpen] = useState<boolean>(true)
   const [isMap, setIsMap] = useState<boolean>(true)
   const [paths, setPaths] = useState<string[]>([])
@@ -35,7 +37,10 @@ export const Original = () => {
           {isMap ? (
             <div>
               <Map pos={pos} setPos={setPos} />
-              <div className="absolute top-0 left-0 right-0 bottom-0 h-1/2 aspect-square m-auto rounded-full bg-black z-10 opacity-30 pointer-events-none"></div>
+              <div
+                ref={circleRef}
+                className={`absolute top-0 left-0 right-0 bottom-0 h-1/2 aspect-square m-auto rounded-full z-10 opacity-30 pointer-events-none border-2 ${tooSmall(pos.scale) ? 'bg-warn-original border-warn-dark' : 'bg-black border-darkblack'}`}
+              ></div>
             </div>
           ) : (
             <EnvMapCanvas scenePath={scenes[0].path}>
@@ -64,7 +69,7 @@ export const Original = () => {
             className="absolute top-5 right-5"
           />
         </div>
-        <OriginalDrawer isOpen={isDrawerOpen} isMap={isMap} setIsMap={setIsMap} setPaths={setPaths} pos={pos} />
+        <OriginalDrawer isOpen={isDrawerOpen} isMap={isMap} setIsMap={setIsMap} setPaths={setPaths} pos={pos} pixelRadius={circleRef.current?.clientHeight} />
       </div>
     </div>
   )
