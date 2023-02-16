@@ -11,12 +11,15 @@ export const getPaths = async (lat: number, lng: number, scale: number): Promise
   return paths
 }
 
-export const scaleToRadius = (scale: number): number => {
-  const equator = 30000000
-  const perPixel = equator / 2 ** scale / 256
-  return Math.round((perPixel * 450) / 2)
+export const scaleToRadius = (scale: number, pixelRadius: number = 10): number => {
+  const coef = 4000000
+  return Math.round((coef * pixelRadius) / (2 ** scale))
 }
 
 const getAlt = (lat: number, lng: number) => {
   return 0
+}
+
+export const tooSmall = (scale: number): boolean => {
+  return scale < 17
 }
