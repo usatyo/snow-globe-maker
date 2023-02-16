@@ -1,5 +1,5 @@
-export const getPaths = async (lat: number, lng: number, scale: number): Promise<string[]> => {
-  const radius: number = scaleToRadius(scale)
+export const getPaths = async (lat: number, lng: number, scale: number, pixelRadius: number): Promise<string[]> => {
+  const radius: number = scaleToRadius(scale, pixelRadius)
   const alt: number = getAlt(lat, lng)
 
   const responce = await fetch(
@@ -24,7 +24,7 @@ const getAlt = (lat: number, lng: number) => {
 }
 
 export const tooSmall = (scale: number): boolean => {
-  return scale < 17
+  return scale < 16
 }
 
 // https://github.com/ksasao/PlateauCityGmlSharp/blob/main/src/PlateauCityGml/Position.cs
