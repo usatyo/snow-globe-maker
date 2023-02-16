@@ -15,7 +15,7 @@ type Props = {
 export const OriginalDrawer: FC<Props> = ({ isOpen, isMap, setIsMap, setPaths, pos, pixelRadius }) => {
   const titles: string[] = isMap ? ['Map'] : ['Preview']
   const childrens: ReactNode[] = isMap
-    ? [<MapContent setIsMap={setIsMap} setPaths={setPaths} pos={pos} pixelRadius={pixelRadius ?? 1} />]
+    ? [<MapContent setIsMap={setIsMap} setPaths={setPaths} pos={pos} pixelRadius={pixelRadius ?? 450} />]
     : [<PreviewContent setIsMap={setIsMap} />]
   return <Drawer isOpen={isOpen} titles={titles} childrens={childrens} />
 }
@@ -28,8 +28,14 @@ const MapContent = (props: {
 }) => {
   const handleClick = async () => {
     if (tooSmall(props.pos.scale)) { return }
+    const newPaths = await getPaths(props.pos.lat, props.pos.lng, props.pos.scale, props.pixelRadius)
+    if(newPaths.length == 0) {
+      alert('この範囲には建物が存在しません')
+      return
+    }
+    props.setPaths(newPaths)
     props.setIsMap((prev) => !prev)
-    props.setPaths(await getPaths(props.pos.lat, props.pos.lng, props.pos.scale))
+
   }
   return (
     <div>
@@ -38,7 +44,7 @@ const MapContent = (props: {
       <p>scale:{props.pos.scale}</p>
       <p>radius:{scaleToRadius(props.pos.scale, props.pixelRadius)}</p>
       <p>場所によってはテクスチャがつかない場合があります</p>
-      {props.pos.scale < 17 && <p>半径が大きすぎます</p>}
+      {tooSmall(props.pos.scale) && <p>半径が大きすぎます</p>}
       <button onClick={handleClick} disabled={tooSmall(props.pos.scale)}>make</button>
     </div>
   )
@@ -48,7 +54,7 @@ const PreviewContent = (props: { setIsMap: Dispatch<SetStateAction<boolean>> }) 
   const handleClick = () => {
     props.setIsMap((prev) => !prev)
   }
-  return <button onClick={handleClick}>return to map</button>
+  return <button onClick={handleClick}>back to map</button>
 }
 
 export default OriginalDrawer
