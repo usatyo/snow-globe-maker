@@ -45,11 +45,11 @@ export class LocationCoordinates {
   }
   toVec3Array(origin: LocationCoordinates): number[] {
       // 指定した origin を原点とした位置をX,Y,Z(m)に変換します
-      // 右手系, Z-up, +Y方向が南, +X方向が西
+      // 右手系, Y-up, +Z方向が南, +X方向が東
       return [
-          -(origin.calcDist(new LocationCoordinates(origin.lat, this.lng, origin.alt)) * Math.sign(this.lng - origin.lng)),
-          -(origin.calcDist(new LocationCoordinates(this.lat, origin.lng, origin.alt)) * Math.sign(this.lat - origin.lat)),
-          (this.alt - origin.alt)
+          (origin.calcDist(new LocationCoordinates(origin.lat, this.lng, origin.alt)) * Math.sign(this.lng - origin.lng)),
+          (this.alt - origin.alt),
+          -(origin.calcDist(new LocationCoordinates(this.lat, origin.lng, origin.alt)) * Math.sign(this.lat - origin.lat))
       ];
   }
   static haversine(latitude1: number, longitude1: number, latitude2: number, longitude2: number): number {
