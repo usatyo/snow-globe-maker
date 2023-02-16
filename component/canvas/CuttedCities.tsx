@@ -7,7 +7,10 @@ import Model from './Model'
 const CuttedCities = (props: { paths: string[], pos: PositionType}) => {
   const originLocCor = new LocationCoordinates(origin.lat, origin.lng, props.pos.alt)
   const posLocCor = new LocationCoordinates(props.pos.lat, props.pos.lng, props.pos.alt).toVec3Array(originLocCor)
-  const scaleMultiplyer = 8 / scaleToRadius(props.pos.scale)
+  // 「現実の半径」を「スノードームのモデルの地面の半径」へ縮小する割合
+  // 空のスノードームのモデルの地面の半径が目測1.886m,
+  // スノードームを表示するときにscale=5としているため5倍
+  const scaleMultiplyer = (1.886 * 5) / scaleToRadius(props.pos.scale)
 
   return (
     <>
