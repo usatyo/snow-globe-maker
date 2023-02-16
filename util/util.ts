@@ -12,6 +12,7 @@ export const getPaths = async (lat: number, lng: number, scale: number): Promise
 }
 
 export const scaleToRadius = (scale: number): number => {
+  // https://wiki.openstreetmap.org/wiki/Zoom_levels
   const equator = 40075016.686
   const latLength = equator * Math.cos(41.531088934083236 * Math.PI / 180.0)
   const perPixel = latLength / 2 ** scale / 256
