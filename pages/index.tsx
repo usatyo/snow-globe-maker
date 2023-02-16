@@ -12,7 +12,7 @@ export default function Home() {
         <Crystal />
       </div>
       <div className="grow flex flex-row bg-base-dark">
-        <div className="flex flex-col space-y-24 grow-0 w-full md:w-2/5 items-center text-center align-middle mt-[50%] md:mt-[20%] text-accent-original">
+        <div className="flex flex-col space-y-24 grow-0 w-full md:w-2/5 items-center text-center align-middle top-0 bottom-0 m-auto text-accent-original">
           <p className="text-accent-original text-[0.7rem] md:text-[1.5rem]  tracking-[3px] font-noto font-extralight">
             ─　あなたの街にも、初雪を　─
           </p>

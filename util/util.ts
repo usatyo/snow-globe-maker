@@ -1,5 +1,5 @@
-export const getPaths = async (lat: number, lng: number, scale: number): Promise<string[]> => {
-  const radius: number = scaleToRadius(scale)
+export const getPaths = async (lat: number, lng: number, scale: number, pixelRadius: number): Promise<string[]> => {
+  const radius: number = scaleToRadius(scale, pixelRadius)
   const alt: number = getAlt(lat, lng)
 
   const responce = await fetch(
@@ -11,16 +11,20 @@ export const getPaths = async (lat: number, lng: number, scale: number): Promise
   return paths
 }
 
-export const scaleToRadius = (scale: number): number => {
+export const scaleToRadius = (scale: number, pixelRadius: number = 450): number => {
   // https://wiki.openstreetmap.org/wiki/Zoom_levels
   const equator = 40075016.686
   const latLength = equator * Math.cos(41.531088934083236 * Math.PI / 180.0)
   const perPixel = latLength / 2 ** scale / 256
-  return Math.round((perPixel * 450) / 2)
+  return Math.round((perPixel * pixelRadius) / 2)
 }
 
 const getAlt = (lat: number, lng: number) => {
   return 0
+}
+
+export const tooSmall = (scale: number): boolean => {
+  return scale < 16
 }
 
 // https://github.com/ksasao/PlateauCityGmlSharp/blob/main/src/PlateauCityGml/Position.cs
