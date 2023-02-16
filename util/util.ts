@@ -12,8 +12,9 @@ export const getPaths = async (lat: number, lng: number, scale: number): Promise
 }
 
 export const scaleToRadius = (scale: number): number => {
-  const equator = 30000000
-  const perPixel = equator / 2 ** scale / 256
+  const equator = 40075016.686
+  const latLength = equator * Math.cos(41.531088934083236 * Math.PI / 180.0)
+  const perPixel = latLength / 2 ** scale / 256
   return Math.round((perPixel * 450) / 2)
 }
 
