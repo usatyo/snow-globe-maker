@@ -21,7 +21,8 @@ const CuttedCities = (props: { paths: string[], pos: PositionType}) => {
               return (
                 <Model 
                   rotation-y={Math.PI}
-                  position={[-posLocCor[0] * scaleMultiplyer, -3, -posLocCor[2] * scaleMultiplyer]}
+                  //台のy位置は約-0.3249m
+                  position={[-posLocCor[0] * scaleMultiplyer, -(origin.alt)*scaleMultiplyer-1-0.3249*5, -posLocCor[2] * scaleMultiplyer]}
                   scale={scaleMultiplyer}
                   object={null}
                   path={path}
