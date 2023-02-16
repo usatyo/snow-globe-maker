@@ -24,7 +24,7 @@ const getAlt = (lat: number, lng: number) => {
 }
 
 // https://github.com/ksasao/PlateauCityGmlSharp/blob/main/src/PlateauCityGml/Position.cs
-class LocationCoordinates {
+export class LocationCoordinates {
   lat: number;
   lng: number;
   alt: number;
