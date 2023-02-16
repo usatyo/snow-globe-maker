@@ -15,7 +15,7 @@ type Props = {
 export const OriginalDrawer: FC<Props> = ({ isOpen, isMap, setIsMap, setPaths, pos, pixelRadius }) => {
   const titles: string[] = isMap ? ['Map'] : ['Preview']
   const childrens: ReactNode[] = isMap
-    ? [<MapContent setIsMap={setIsMap} setPaths={setPaths} pos={pos} pixelRadius={pixelRadius ?? 1} />]
+    ? [<MapContent setIsMap={setIsMap} setPaths={setPaths} pos={pos} pixelRadius={pixelRadius ?? 450} />]
     : [<PreviewContent setIsMap={setIsMap} />]
   return <Drawer isOpen={isOpen} titles={titles} childrens={childrens} />
 }
