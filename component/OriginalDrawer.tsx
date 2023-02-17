@@ -17,7 +17,7 @@ export const OriginalDrawer: FC<Props> = ({ isOpen, isMap, setIsMap, setPaths, p
   const childrens: ReactNode[] = isMap
     ? [<MapContent setIsMap={setIsMap} setPaths={setPaths} pos={pos} pixelRadius={pixelRadius ?? 450} />]
     : [<PreviewContent setIsMap={setIsMap} />]
-  return <Drawer isOpen={isOpen} titles={titles} childrens={childrens} />
+  return <Drawer isOpen={isOpen} titles={titles} childrens={childrens} className="h-1/2 md:h-full" />
 }
 
 const MapContent = (props: {
@@ -39,7 +39,7 @@ const MapContent = (props: {
     props.setIsMap((prev) => !prev)
   }
   return (
-    <div className="flex flex-col justify-end">
+    <div className="flex flex-col  ">
       <button
         onClick={handleClick}
         disabled={tooSmall(props.pos.scale)}
