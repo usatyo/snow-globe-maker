@@ -17,7 +17,7 @@ type Props = {
 
 const Option = (props: { val: string; name: string; ruby: string; idx: number }) => {
   return (
-    <div key={props.idx} className="flex flex-col items-end space-y-1 ml-6">
+    <div key={props.idx} className="flex flex-col items-end space-y-1 ml-16 md:ml-20">
       <div className="flex flex-row items-center space-x-3 md:w-56">
         <RadioGroup.Item
           value={props.val}
@@ -45,7 +45,7 @@ const CityContent = (props: { onChange: (city: string) => void }) => {
         defaultChecked
         defaultValue={cities[0].gltfPath}
         onValueChange={props.onChange}
-        className="z-30 flex flex-col items-start space-y-5"
+        className="z-30 flex flex-col items-start space-y-5 "
       >
         {cities.map((val, idx) => {
           return <Option val={val.gltfPath} name={val.name} ruby={val.ruby} key={idx} idx={idx} />
@@ -74,7 +74,7 @@ const SceneContent = (props: { onChange: (city: string) => void }) => {
 
 const OptionContent = (props: { path: string }) => {
   return (
-    <div className="flex flex-col space-y-10 items-start mx-auto">
+    <div className="flex flex-col space-y-10 items-start mx-auto ml-12">
       <Audio className=" hover:opacity-70 w-64 transition-all duration-300" />
       <a
         href={props.path}
@@ -92,9 +92,6 @@ const OptionContent = (props: { path: string }) => {
         <TwitterIcon size={32} className="ml-3" />
         <p className="text-accent-original text-md tracking-wide">Share this model</p>
       </TwitterShareButton>
-      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-show-count="false">
-        Tweet
-      </a>
     </div>
   )
 }

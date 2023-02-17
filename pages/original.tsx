@@ -39,7 +39,7 @@ export const Original = () => {
               <Map pos={pos} setPos={setPos} />
               <div
                 ref={circleRef}
-                className={`absolute top-0 left-0 right-0 bottom-0 h-1/2 aspect-square m-auto rounded-full z-10 opacity-30 pointer-events-none border-2 ${
+                className={` absolute top-16 md:top-20 left-0 right-0 bottom-0 h-1/2 aspect-square m-auto rounded-full z-10 opacity-30 pointer-events-none border-2 ${
                   tooSmall(pos.scale) ? 'bg-warn-original border-warn-dark' : 'bg-black border-darkblack'
                 }`}
               ></div>
@@ -78,7 +78,6 @@ export const Original = () => {
           setPaths={setPaths}
           pos={pos}
           pixelRadius={circleRef.current?.clientHeight}
-          className="h-1/3"
         />
       </div>
     </div>
