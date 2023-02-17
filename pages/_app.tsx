@@ -7,11 +7,9 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <div>
       <Head>
-        <meta property="og:url" content="https://snow-city-hipubp10c-usatyo.vercel.app/" />
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@AluminumMikan" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta name="description" content={'こんにちは'} />
+        <meta property="og:url" content="https://snow-city-hipubp10c-usatyo.vercel.app/" />
         <meta property="og:title" content={'snow'} />
         <meta property="og:site_name" content={'snow-globe'} />
         <meta property="og:description" content={'aaa'} />
