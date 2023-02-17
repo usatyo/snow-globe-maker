@@ -10,7 +10,7 @@ export const Crystal = () => {
         return (
           <BsSnow2
             key={idx}
-            className="absolute h-40 w-40 text-base-light text-opacity-20 z-10"
+            className="absolute h-20 w-20 md:h-40 md:w-40 text-base-light text-opacity-20 z-30 md:z-10"
             style={{
               right: `${right - 10}%`,
               bottom: `${bottom - 10}%`,

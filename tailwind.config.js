@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     colors: {
       black: '#333333',
+      darkblack: '#111111',
       white: '#ffffff',
       main: {
         light: '#000000',
@@ -24,6 +25,11 @@ module.exports = {
         light: '#f5fffe',
         original: '#e8fffd',
         dark: '#ccfcf9'
+      },
+      warn: {
+        light: '#fcb8b3',
+        original: '#ff948c',
+        dark: '#ed544a'
       }
     },
     fontSize: {

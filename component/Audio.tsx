@@ -1,37 +1,29 @@
 import { useState } from 'react'
-import { TbMusic, TbMusicOff } from 'react-icons/tb'
+import { BsMusicNoteBeamed } from 'react-icons/bs'
 import useSound from 'use-sound'
 
-const Audio = () => {
+const Audio = (props: { className?: string }) => {
   const [isPlaying, setIsPlaying] = useState(false)
   const [play, { stop }] = useSound('/night.mp3', { loop: true, interrupt: true, volume: 0.3 })
   return (
-    <div className="absolute bottom-10 right-10 z-50">
-      {isPlaying ? (
-        <button
-          onClick={() => {
-            setIsPlaying(false)
+    <div>
+      <button
+        onClick={() => {
+          setIsPlaying(!isPlaying)
+          if (isPlaying) {
             stop()
-            console.log(isPlaying)
-          }}
-          className="pointer text-align-center"
-        >
-          <TbMusic style={{ width: '45px', height: '45px', color: '#CEBF7E' }} />
-          <p className="text-sm text-[#CEBF7E]">SOUND</p>
-        </button>
-      ) : (
-        <button
-          onClick={() => {
-            setIsPlaying(true)
+          } else {
             play()
-            console.log(isPlaying)
-          }}
-          className="pointer "
-        >
-          <TbMusicOff style={{ width: '45px', height: '45px', color: '#CEBF7E', alignItems: 'center' }} />
-          {/* <p className="text-sm text-[#CEBF7E]">SOUND</p> */}
-        </button>
-      )}
+          }
+          console.log(isPlaying)
+        }}
+        className={`flex items-center space-x-3 ${props.className}`}
+      >
+        <BsMusicNoteBeamed className="text-accent-original h-8 w-8 ml-3" />
+        <p className="text-accent-original text-md tracking-wide">
+          Sound <span className="text-xl">{isPlaying ? 'ON' : 'OFF'}</span>
+        </p>
+      </button>
     </div>
   )
 }

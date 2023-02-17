@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@radix-ui/react-radio-group": "^1.1.0",
+    "@radix-ui/react-tabs": "^1.0.2",
     "@react-three/drei": "^9.7.1",
     "@react-three/fiber": "^8.0.13",
     "@types/node": "18.11.9",
@@ -19,16 +20,20 @@
     "@types/react-dom": "18.0.8",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.2",
+    "leaflet": "^1.9.3",
     "next": "13.0.2",
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-icons": "^4.6.0",
+    "react-leaflet": "^4.2.0",
+    "react-share": "^4.4.1",
     "three": "^0.140.0",
     "three-orbit-controls": "^82.1.0",
     "typescript": "4.8.4",
     "use-sound": "^4.0.1"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.9.0",
     "@types/three": "^0.146.0",
     "autoprefixer": "^10.4.13",
     "eslint-config-prettier": "^8.5.0",
