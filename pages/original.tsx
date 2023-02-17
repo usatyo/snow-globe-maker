@@ -32,14 +32,16 @@ export const Original = () => {
     <div className="h-screen bg-gradient-to-br from-base-dark to-black overflow-hidden">
       <Header className="" />
       {/* y方向スクロールに対応するため、コンテンツは固定値でflexを未使用 */}
-      <div className="relative flex flex-row md:h-[calc(100%_-_90px)] h-1/2">
-        <div className={isDrawerOpen ? 'relative  md:w-3/4' : 'relative  md:w-full'}>
+      <div className="relative flex flex-col md:flex-row h-full">
+        <div className={isDrawerOpen ? 'relative  h-2/3 md:w-3/4 md:h-full' : 'h-2/3 relative  md:w-full md:h-full'}>
           {isMap ? (
             <div>
               <Map pos={pos} setPos={setPos} />
               <div
                 ref={circleRef}
-                className={`absolute top-0 left-0 right-0 bottom-0 h-1/2 aspect-square m-auto rounded-full z-10 opacity-30 pointer-events-none border-2 ${tooSmall(pos.scale) ? 'bg-warn-original border-warn-dark' : 'bg-black border-darkblack'}`}
+                className={`absolute top-0 left-0 right-0 bottom-0 h-1/2 aspect-square m-auto rounded-full z-10 opacity-30 pointer-events-none border-2 ${
+                  tooSmall(pos.scale) ? 'bg-warn-original border-warn-dark' : 'bg-black border-darkblack'
+                }`}
               ></div>
             </div>
           ) : (
@@ -66,10 +68,18 @@ export const Original = () => {
             onClick={() => {
               setIsDrawerOpen((prev) => !prev)
             }}
-            className="absolute top-5 right-5"
+            className=" opacity-0 md:opacity-100 md:z-10 md:absolute md:top-5 md:right-5"
           />
         </div>
-        <OriginalDrawer isOpen={isDrawerOpen} isMap={isMap} setIsMap={setIsMap} setPaths={setPaths} pos={pos} pixelRadius={circleRef.current?.clientHeight} />
+        <OriginalDrawer
+          isOpen={isDrawerOpen}
+          isMap={isMap}
+          setIsMap={setIsMap}
+          setPaths={setPaths}
+          pos={pos}
+          pixelRadius={circleRef.current?.clientHeight}
+          className="h-1/3"
+        />
       </div>
     </div>
   )
