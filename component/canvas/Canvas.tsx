@@ -1,14 +1,10 @@
-import { FC, useEffect, useRef, useState } from 'react'
+import { FC, useEffect, useRef } from 'react'
 
 import {
   AmbientLight,
-  BufferGeometry,
   CubeTextureLoader,
-  Float32BufferAttribute,
   PerspectiveCamera,
   PointLight,
-  Points,
-  PointsMaterial,
   Scene,
   WebGLRenderer
 } from 'three'
