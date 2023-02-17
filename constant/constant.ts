@@ -20,9 +20,9 @@ export type CityType = {
 
 export const cities: Array<CityType> = [
   { name: 'Sapporo', gltfPath: '/sapporo.glb', ruby: '札幌' },
-  { name: 'Tokyo', gltfPath: '/tokyo.glb', ruby: '東京' },
-  { name: 'Nagoya', gltfPath: '/nagoya.glb', ruby: '名古屋' },
-  { name: 'Yokohama', gltfPath: '/yokohama.glb', ruby: '横浜' },
+  { name: 'Tokyo', gltfPath: '/tokyo_1k.glb', ruby: '東京' },
+  { name: 'Nagoya', gltfPath: '/nagoya_1k.glb', ruby: '名古屋' },
+  { name: 'Yokohama', gltfPath: '/yokohama_1k.glb', ruby: '横浜' },
   { name: 'Osaka', gltfPath: '/osaka.glb', ruby: '大阪' }
 ]
 
