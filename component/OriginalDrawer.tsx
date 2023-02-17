@@ -1,6 +1,7 @@
 import { Dispatch, FC, ReactNode, SetStateAction } from 'react'
+import { BsFillExclamationCircleFill, BsFillInfoCircleFill } from 'react-icons/bs'
 import { PositionType } from '../constant/constant'
-import { getPaths, scaleToRadius, tooSmall } from '../util/util'
+import { getPaths, tooSmall } from '../util/util'
 import Drawer from './Drawer'
 
 type Props = {
@@ -39,16 +40,26 @@ const MapContent = (props: {
     props.setIsMap((prev) => !prev)
   }
   return (
-    <div className="flex flex-col  ">
+    <div className="flex flex-col space-y-3">
       <button
         onClick={handleClick}
         disabled={tooSmall(props.pos.scale)}
-        className="relative cursor-pointer text-[1.5rem] border-[1px] font-italianno border-accent-original px-6 py-4  my-3 text-sm md:px-10 md:py-6 text-accent-original md:text-md tracking-widest font-noto hover:bg-accent-original z-20 transition-all duration-500 hover:text-base-dark"
+        className="relative cursor-pointer text-[1.5rem] border-[1px] font-italianno border-accent-original px-6 py-4 md:px-10 md:py-6 text-accent-original md:text-md tracking-widest hover:bg-accent-original z-20 transition-all duration-500 hover:text-base-dark"
       >
         make
       </button>
-      <p className="text-accent-original md: text-[0.7rem]">※場所によってはテクスチャがつかない場合があります</p>
-      {tooSmall(props.pos.scale) && <p className="text-[0.7em] text-red-700">半径が大きすぎます</p>}
+      {tooSmall(props.pos.scale) &&
+        <div className='text-warn-original flex flex-row space-x-1'>
+          <BsFillExclamationCircleFill className='w-4 h-4' />
+          <p className="text-[0.7em]">
+            半径が大きすぎます
+          </p>
+        </div>
+      }
+      <div className='text-accent-original flex flex-row space-x-1'>
+        <BsFillInfoCircleFill className='w-4 h-4' />
+        <p className="text-[0.7em] flex flex-row items-center">場所によってはテクスチャがつかない場合があります</p>
+      </div>
     </div>
   )
 }
