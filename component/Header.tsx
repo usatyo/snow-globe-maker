@@ -11,10 +11,10 @@ type Props = {
 export const Header: FC<Props> = ({ className }) => {
   return (
     <div
-      className={`flex flex-row justify-between items-center bg-black text-accent-original backdrop-blur-xl px-3 md:py-3 md:px-10 z-40 ${className}`}
+      className={`fixed w-full flex flex-row justify-between items-center bg-black text-accent-original backdrop-blur-xl px-3 md:h-20 h-16 md:py-3 md:px-10 z-40 ${className}`}
     >
       <Link href="/">
-        <Image src={logoImg} alt="logo" className="w-16 md:w-36 object-cover" />
+        <Image src={logoImg} alt="logo" className="w-24 md:w-36 object-cover" />
       </Link>
       <div className="flex flex-row space-x-4 md:space-x-16 text-xl tracking-wider">
         <Link href="/" className="flex flex-col items-center mt-2">

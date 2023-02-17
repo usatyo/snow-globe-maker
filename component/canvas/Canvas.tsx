@@ -1,13 +1,6 @@
 import { FC, useEffect, useRef } from 'react'
 
-import {
-  AmbientLight,
-  CubeTextureLoader,
-  PerspectiveCamera,
-  PointLight,
-  Scene,
-  WebGLRenderer
-} from 'three'
+import { AmbientLight, CubeTextureLoader, PerspectiveCamera, PointLight, Scene, WebGLRenderer } from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import Crystal from '../Crystal'
@@ -122,7 +115,7 @@ export const Canvas: FC<Props> = ({ path, onLoading, onError, className }) => {
 
   return (
     <div className={`relative h-full w-full flex flex-row ${className}`}>
-      <div className="absolute top-10 bottom-10 left-10 right-11 z-30 items-stretch border-2 border-accent-original">
+      <div className="absolute top-20 bottom-10 left-10 right-11 z-30 items-stretch border-2 border-accent-original">
         <div ref={containerRef} className="h-full w-full"></div>
       </div>
       <Crystal />

@@ -45,7 +45,7 @@ export const Gallery = () => {
             onClick={() => {
               setIsDrawerOpen((prev) => !prev)
             }}
-            className=" opacity-0 md:opacity-100 md:z-10 md:absolute md:top-5 md:right-5"
+            className=" opacity-0 md:opacity-100 md:z-10 md:absolute md:top-5 md:right-5 mt-20"
           />
         </div>
         <Crystal />
