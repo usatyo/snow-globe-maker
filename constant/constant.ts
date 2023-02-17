@@ -41,4 +41,4 @@ export const scenes: Array<SceneType> = [
   { name: 'Snow Field', path: 'snow_field.hdr', ruby: '屋外' }
 ]
 
-export const shareUrl = 'https://snow-city-hipubp10c-usatyo.vercel.app/'
+export const shareUrl = 'https://snow-city.vercel.app/'
