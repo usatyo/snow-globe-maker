@@ -56,7 +56,7 @@ export const Original = () => {
                 penumbra={0.2}
               />
               <SnowGlobe path={emptyModel} />
-              <CuttedCities paths={[...paths]} pos={pos} />
+              <CuttedCities paths={[...paths]} pos={pos} pixelRadius={circleRef.current?.clientHeight} />
               <Snows />
               <TableModel object={null} position={[0, -8, 0]} scale={[4, 1, 4]} />
             </EnvMapCanvas>

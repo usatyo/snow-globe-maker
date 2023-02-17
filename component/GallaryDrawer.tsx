@@ -85,7 +85,7 @@ const OptionContent = (props: { path: string }) => {
       <TwitterShareButton
         url={shareUrl}
         title={
-          'あなただけのスノードームを作りましょう！！\n#snow_city #PLATEAU\n\nhttps://pbs.twimg.com/media/Fob9DAfagAIBZ66?format=jpg&name=small\n\n'
+          'あなただけのスノードームを作りましょう！！\n#snow_city #PLATEAU\n\n'
         }
         className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300"
       >
