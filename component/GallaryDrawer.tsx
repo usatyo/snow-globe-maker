@@ -13,6 +13,7 @@ type Props = {
   cityPath: string
   onCityChange: (city: string) => void
   onSceneChange: (scene: string) => void
+  scenePath: string
 }
 
 const Option = (props: { val: string; name: string; ruby: string; idx: number }) => {
@@ -38,12 +39,12 @@ const Option = (props: { val: string; name: string; ruby: string; idx: number })
   )
 }
 
-const CityContent = (props: { onChange: (city: string) => void }) => {
+const CityContent = (props: { onChange: (city: string) => void, cityPath:string }) => {
   return (
     <div>
       <RadioGroup.Root
         defaultChecked
-        defaultValue={cities[0].gltfPath}
+        defaultValue={props.cityPath}
         onValueChange={props.onChange}
         className="z-30 flex flex-col items-start space-y-5"
       >
@@ -55,12 +56,12 @@ const CityContent = (props: { onChange: (city: string) => void }) => {
   )
 }
 
-const SceneContent = (props: { onChange: (city: string) => void }) => {
+const SceneContent = (props: { onChange: (city: string) => void, scenePath: string }) => {
   return (
     <div>
       <RadioGroup.Root
         defaultChecked
-        defaultValue={scenes[0].path}
+        defaultValue={props.scenePath}
         onValueChange={props.onChange}
         className={'z-30 flex flex-col items-start space-y-5'}
       >
@@ -100,11 +101,11 @@ const OptionContent = (props: { path: string }) => {
   )
 }
 
-export const GallaryDrawer: FC<Props> = ({ isOpen, onSceneChange, onCityChange, cityPath }) => {
+export const GallaryDrawer: FC<Props> = ({ isOpen, onSceneChange, onCityChange, cityPath, scenePath }) => {
   const titles: string[] = ['City', 'Scene', 'Option']
   const childrens: ReactNode[] = [
-    <CityContent onChange={onCityChange} />,
-    <SceneContent onChange={onSceneChange} />,
+    <CityContent onChange={onCityChange} cityPath={cityPath} />,
+    <SceneContent onChange={onSceneChange} scenePath={scenePath} />,
     <OptionContent path={cityPath} />
   ]
   return <Drawer isOpen={isOpen} titles={titles} childrens={childrens} />

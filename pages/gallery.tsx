@@ -49,7 +49,7 @@ export const Gallery = () => {
           />
         </div>
         <Crystal />
-        <GallaryDrawer isOpen={isDrawerOpen} onCityChange={setCity} onSceneChange={setScene} cityPath={city} />
+        <GallaryDrawer isOpen={isDrawerOpen} onCityChange={setCity} onSceneChange={setScene} cityPath={city} scenePath={scene} />
       </div>
     </div>
   )
