@@ -10,10 +10,10 @@ export const Crystal = () => {
         return (
           <BsSnow2
             key={idx}
-            className="absolute h-20 w-20 md:h-40 md:w-40 text-base-light text-opacity-20 z-30 md:z-10"
+            className="absolute h-20 w-20 md:h-40 md:w-40 text-base-light text-opacity-20 z-30"
             style={{
-              right: `${right - 10}%`,
-              bottom: `${bottom - 10}%`,
+              right: `${right - 5}%`,
+              bottom: `${bottom - 5}%`,
               transform: `scale(${scale}) rotate(${Math.random() * 60}deg)`,
               filter: `blur(${scale * 5}px)`
             }}
