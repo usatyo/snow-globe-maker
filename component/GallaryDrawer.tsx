@@ -71,6 +71,7 @@ const SceneContent = (props: { onChange: (city: string) => void }) => {
 }
 
 const OptionContent = (props: { path: string }) => {
+  console.log(props.path)
   return (
     <div className="flex flex-col space-y-10 items-start mx-auto">
       <Audio className=" hover:opacity-70 w-64 transition-all duration-300" />
