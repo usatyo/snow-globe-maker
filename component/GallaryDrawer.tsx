@@ -2,7 +2,9 @@ import * as RadioGroup from '@radix-ui/react-radio-group'
 import { FC, ReactNode } from 'react'
 import { BsCloudDownload } from 'react-icons/bs'
 import { TwitterIcon, TwitterShareButton } from 'react-share'
+
 import { scenes, cities, shareUrl } from '../constant/constant'
+
 import Audio from './Audio'
 import Drawer from './Drawer'
 
@@ -84,14 +86,15 @@ const OptionContent = (props: { path: string }) => {
       </a>
       <TwitterShareButton
         url={shareUrl}
-        title={
-          'あなただけのスノードームを作りましょう！！\n#snow_city #PLATEAU\n\n'
-        }
+        title={'あなただけのスノードームを作りましょう！！\n#snow_city #PLATEAU\n\n'}
         className="flex items-center space-x-3 hover:opacity-70 w-64 transition-all duration-300"
       >
         <TwitterIcon size={32} className="ml-3" />
         <p className="text-accent-original text-md tracking-wide">Share this model</p>
       </TwitterShareButton>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-show-count="false">
+        Tweet
+      </a>
     </div>
   )
 }
