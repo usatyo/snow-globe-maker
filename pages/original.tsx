@@ -2,7 +2,6 @@ import { SpotLight } from '@react-three/drei'
 import dynamic from 'next/dynamic'
 import { useMemo, useRef, useState } from 'react'
 
-import FullScreenButton from '../component/FullScreenButton'
 import Header from '../component/Header'
 import OriginalDrawer from '../component/OriginalDrawer'
 import Snows from '../component/canvas//Snows'
@@ -33,13 +32,13 @@ export const Original = () => {
       <Header className="" />
       {/* y方向スクロールに対応するため、コンテンツは固定値でflexを未使用 */}
       <div className="relative flex flex-col md:flex-row h-full">
-        <div className={isDrawerOpen ? 'relative  h-2/3 md:w-3/4 md:h-full' : 'h-2/3 relative  md:w-full md:h-full'}>
+        <div className={'relative h-2/3 md:w-3/4 md:h-full'}>
           {isMap ? (
             <div>
               <Map pos={pos} setPos={setPos} />
               <div
                 ref={circleRef}
-                className={`absolute top-0 left-0 right-0 bottom-0 h-1/2 aspect-square m-auto rounded-full z-10 opacity-30 pointer-events-none border-2 ${
+                className={` absolute top-16 md:top-20 left-0 right-0 bottom-0 h-1/2 aspect-square m-auto rounded-full z-10 opacity-30 pointer-events-none border-2 ${
                   tooSmall(pos.scale) ? 'bg-warn-original border-warn-dark' : 'bg-black border-darkblack'
                 }`}
               ></div>
@@ -63,13 +62,6 @@ export const Original = () => {
               <TableModel object={null} position={[0, -8, 0]} scale={[4, 1, 4]} />
             </EnvMapCanvas>
           )}
-          <FullScreenButton
-            isFullScreen={!isDrawerOpen}
-            onClick={() => {
-              setIsDrawerOpen((prev) => !prev)
-            }}
-            className=" opacity-0 md:opacity-100 md:z-10 md:absolute md:top-5 md:right-5"
-          />
         </div>
         <OriginalDrawer
           isOpen={isDrawerOpen}
@@ -78,7 +70,6 @@ export const Original = () => {
           setPaths={setPaths}
           pos={pos}
           pixelRadius={circleRef.current?.clientHeight}
-          className="h-1/3"
         />
       </div>
     </div>

@@ -10,7 +10,6 @@ type Props = {
   setPaths: Dispatch<SetStateAction<string[]>>
   pos: PositionType
   pixelRadius: number | undefined
-  className: string
 }
 
 export const OriginalDrawer: FC<Props> = ({ isOpen, isMap, setIsMap, setPaths, pos, pixelRadius }) => {
@@ -18,7 +17,7 @@ export const OriginalDrawer: FC<Props> = ({ isOpen, isMap, setIsMap, setPaths, p
   const childrens: ReactNode[] = isMap
     ? [<MapContent setIsMap={setIsMap} setPaths={setPaths} pos={pos} pixelRadius={pixelRadius ?? 450} />]
     : [<PreviewContent setIsMap={setIsMap} />]
-  return <Drawer isOpen={isOpen} titles={titles} childrens={childrens} />
+  return <Drawer isOpen={isOpen} titles={titles} childrens={childrens} className="h-1/2 md:h-full" />
 }
 
 const MapContent = (props: {
@@ -40,12 +39,7 @@ const MapContent = (props: {
     props.setIsMap((prev) => !prev)
   }
   return (
-    <div className="flex flex-col justify-end">
-      {/* <p>lat:{props.pos.lat}</p>
-      <p>lng:{props.pos.lng}</p>
-      <p>scale:{props.pos.scale}</p>
-      <p>radius:{scaleToRadius(props.pos.scale, props.pixelRadius)}</p> */}
-
+    <div className="flex flex-col  ">
       <button
         onClick={handleClick}
         disabled={tooSmall(props.pos.scale)}
