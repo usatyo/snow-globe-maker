@@ -45,7 +45,7 @@ const MapContent = (props: {
         disabled={tooSmall(props.pos.scale)}
         className="relative cursor-pointer text-[1.5rem] border-[1px] font-italianno border-accent-original px-6 py-4  my-3 text-sm md:px-10 md:py-6 text-accent-original md:text-md tracking-widest font-noto hover:bg-accent-original z-20 transition-all duration-500 hover:text-base-dark"
       >
-        make
+        create model
       </button>
       <p className="text-accent-original md: text-[0.7rem]">※場所によってはテクスチャがつかない場合があります</p>
       {tooSmall(props.pos.scale) && <p className="text-[0.7em] text-red-700">半径が大きすぎます</p>}
@@ -57,7 +57,14 @@ const PreviewContent = (props: { setIsMap: Dispatch<SetStateAction<boolean>> }) 
   const handleClick = () => {
     props.setIsMap((prev) => !prev)
   }
-  return <button onClick={handleClick}>back to map</button>
+  return (
+    <button
+      onClick={handleClick}
+      className="relative cursor-pointer text-[1.5rem] border-[1px] font-italianno border-accent-original px-6 py-4  my-3 text-sm md:px-10 md:py-6 text-accent-original md:text-md tracking-widest font-noto hover:bg-accent-original z-20 transition-all duration-500 hover:text-base-dark"
+    >
+      back to map
+    </button>
+  )
 }
 
 export default OriginalDrawer
