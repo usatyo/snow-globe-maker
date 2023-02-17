@@ -10,9 +10,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@AluminumMikan" />
         <meta property="og:url" content="https://snow-city-hipubp10c-usatyo.vercel.app/" />
-        <meta property="og:title" content={'snow'} />
-        <meta property="og:site_name" content={'snow-globe'} />
-        <meta property="og:description" content={'aaa'} />
+        <meta property="og:title" content={'Snow City'} />
+        <meta property="og:site_name" content={'Snow City'} />
+        <meta property="og:description" content={'あなたの街にも初雪を'} />
         <meta property="og:type" content="website" />
         <meta property="og:image" content={'/ogp.png'} />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
